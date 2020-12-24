@@ -1,0 +1,26 @@
+/*
+| Report Styles
+*/
+
+
+// --------------------
+// Report: Column Toggles
+// --------------------
+#toggle-columns-section {
+    .btn-checkbox:active,
+    .btn-checkbox.active {
+        background-color: transparent;
+        color: var(--info);
+    }
+
+    .btn-checkbox:not(.active) {
+        background-color: #d9dde0;
+        border-color: #bbc1c5;
+        color: #807b7b;
+
+        &:focus,
+        &.focus {
+            box-shadow: 0 0 0 0.2rem rgba(167, 171, 175, 0.5);
+        }
+    }
+}

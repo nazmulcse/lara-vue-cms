@@ -1,0 +1,149 @@
+/*
+| Utility Styles
+*/
+
+@import "utilities/loader";
+
+// --------------------
+// Inline Header
+// --------------------
+.inline-header {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+
+    &.inline-header-center {
+        text-align: center;
+
+        &:before,
+        &:after {
+            width: 50%;
+        }
+
+        &:before {
+            left: -1em;
+            margin: 0 0 0 -50%;
+        }
+        &:after {
+            left: 1em;
+            margin: 0 -50% 0 0;
+        }
+    }
+
+    &:before,
+    &:after {
+        background-color: #ccc;
+        content: "";
+        display: inline-block;
+        height: 1px;
+        position: relative;
+        vertical-align: middle;
+        border-radius: 10px;
+    }
+
+    &:after {
+        left: 1em;
+        width: 100%;
+    }
+}
+
+// --------------------
+// Heading with Separator
+// --------------------
+.heading-with-separator {
+    &:after {
+        content: "";
+        background-color: $dark;
+        height: 3px;
+        width: 100px;
+        display: block;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        border-radius: 3px;
+    }
+}
+
+// --------------------
+// Show on Hover
+// --------------------
+.show-on-hover,
+.show-on-hover-inline-block {
+    display: none;
+}
+
+.visible-on-hover {
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.hover-container:hover {
+    .show-on-hover {
+        display: block;
+    }
+
+    .show-on-hover-inline-block {
+        display: inline-block;
+    }
+
+    .visible-on-hover {
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+// --------------------
+// Button Upload
+// --------------------
+.js .btn-image-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.js .btn-image-file input[type="file"] {
+    position: absolute;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    cursor: inherit;
+    top: 0;
+    left: 0;
+    height: 100%;
+    max-width: 100%;
+}
+
+// --------------------
+// Selectable.
+// author: Mino
+// link:   https://stackoverflow.com/a/43783066/1743124
+// --------------------
+.selectable {
+    -webkit-touch-callout: all; // iOS Safari
+    -webkit-user-select: all; // Safari
+    -khtml-user-select: all; // Konqueror HTML
+    -moz-user-select: all; // Firefox
+    -ms-user-select: all; // Internet Explorer/Edge
+    user-select: all; // Chrome and Opera
+}
+
+// --------------------
+// Border Bottom (Except Last One).
+// --------------------
+.border-bottom-not-last {
+    border-bottom: 1px solid #dee2e6;
+
+    &:last-of-type {
+        border-bottom: none;
+    }
+}
+
+.dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    background-color: #ccc;
+}
+
+.img--grayscale {
+    filter: grayscale(100%);
+}

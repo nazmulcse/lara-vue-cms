@@ -1,0 +1,404 @@
+.sidebar {
+    display: none;
+    position: relative;
+    width: 100%;
+
+    // Mimic the .list-group class.
+    .submenu {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        padding-left: 0;
+        margin-bottom: 0;
+
+        // Redesign, because the design demands.
+        .dropdown-divider {
+            position: relative;
+            border-top: none; // undo inherited style.
+            background-color: #fff; // default.
+            margin: 0; // undo inherited style.
+            padding: 0.5rem 0;
+
+            &:before {
+                content: "";
+                display: block;
+                height: 1px;
+                background-color: #292d32; // divider color - default.
+            }
+        }
+    }
+
+    [class*="icon-"] {
+        margin-right: 0.25rem;
+        vertical-align: middle;
+    }
+
+    // Parent Link.
+    .nav-link {
+        position: relative;
+        border-radius: 0;
+        font-size: 0.9rem;
+    }
+
+    // Overrite to hide the submenu.
+    .submenu {
+        display: none;
+        list-style-type: none;
+    }
+
+    .active > .submenu {
+        display: block;
+    }
+
+    // Submenu Link.
+    .dropdown-item {
+        padding: 0.25rem 2.3rem;
+        font-size: 0.9rem;
+        white-space: normal;
+    }
+
+    // Make some space for the toggle icon.
+    .has-submenu .nav-link {
+        padding-right: 2rem;
+    }
+
+    // Indicate there're sub menus.
+    .has-submenu .nav-link:after {
+        content: "\e9c1"; // v (icon-arrow-down12)
+        font-family: "icomoon";
+        position: absolute;
+        right: 1.27rem;
+        top: 0.6rem;
+        border: none;
+    }
+
+    // Indicate parent is open.
+    .has-submenu.active .nav-link:after {
+        content: "\e9c2"; // ^ (icon-arrow-up12)
+    }
+
+    // Third Level ----------------------.
+    ul > li.has-submenu > ul > li.has-submenu > .nav-link {
+        padding: 0.25rem 2.3rem 0.25rem 2.3rem;
+
+        &:after {
+            top: 0.3rem;
+        }
+    }
+
+    ul > li.has-submenu > ul > li.has-submenu .nav-link:after {
+        content: "\e9c1"; // v (icon-arrow-down12)
+    }
+
+    ul > li.has-submenu > ul > li.has-submenu.active .nav-link:after {
+        content: "\e9c2"; // ^ (icon-arrow-up12)
+    }
+
+    ul > li.has-submenu > ul > li.has-submenu .dropdown-item {
+        padding-left: 3.2rem; // for an indented look.
+        position: relative;
+        font-size: 0.8rem;
+
+        // Third level icon.
+        &:before {
+            position: absolute;
+            top: 0.2rem;
+            left: 2.2rem;
+            font-family: "icomoon";
+            content: "\eb04";
+            opacity: 0.2;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        display: block !important;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        box-sizing: content-box;
+        transition: all ease-in-out 0.15s;
+        left: -18.5625rem;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        width: 16.875rem;
+        z-index: 1040;
+        border-right: 1px solid #ddd;
+    }
+
+    .sidebar-expand-md {
+        position: static;
+        transition: none;
+
+        .sidebar-content {
+            position: static;
+            overflow: visible;
+            width: auto;
+        }
+    }
+
+    // --------------------
+    // Sidebar: Collapse/Expand
+    // --------------------
+    .sidebar-mini {
+
+        $mini-width: 3rem;
+
+        .sidebar {
+            width: $mini-width;
+
+            [class*="icon-"] {
+                margin-right: 0;
+                max-width: 1rem; // Restrict extra wide icon to not disturb the design.
+            }
+
+            .has-submenu .nav-link {
+                padding-right: 1rem;
+            }
+
+            .submenu-reversed > .submenu {
+                top: auto !important;
+                bottom: 0;
+            }
+        }
+
+        ul.nav > li.nav-item > .nav-link > span {
+            display: none;
+        }
+
+        // Show menu label for non-submenu items only.
+        ul.nav > li.nav-item:not(.has-submenu) > .nav-link:hover > span {
+            position: absolute;
+            display: block;
+            width: 16.875rem;
+            top: 0;
+            left: $mini-width;
+            z-index: 1100;
+            padding: 0.56rem 1.2rem;
+            background-color: lighten($color-dark, 5%); // default.
+            color: #ccc; // default.
+            font-size: 0.9rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        ul.nav > li.nav-item > .submenu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: $mini-width;
+            width: 16.875rem;
+            z-index: 1000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+            // Show the submenu heading from data-submenu-title attribute.
+            &:not([data-submenu-title=""]):before {
+                content: attr(data-submenu-title);
+                display: block;
+                padding: 0.56rem 1.2rem;
+                color: #ccc; // default.
+                background-color: lighten($color-dark, 5%); // default.
+                border-bottom: 2px solid black; // default.
+                font-weight: 700;
+            }
+        }
+
+        // Make all the submenus visible on hover, in mini sidebar.
+        ul.nav > li.nav-item:hover .submenu {
+            display: block !important;
+        }
+
+        ul.nav > li.has-submenu > ul > li.has-submenu .dropdown-item:before {
+            opacity: 0.3;
+        }
+
+        // Hide the up/down icon.
+        .has-submenu {
+            .nav-link:after {
+                display: none;
+            }
+        }
+
+        .nav > .nav-item {
+            position: relative;
+        }
+
+        .dropdown-item {
+            padding-right: 1.2rem;
+            padding-left: 1.2rem;
+        }
+    }
+}
+
+
+// --------------------------
+// Sidebar theming.
+// --------------------------
+
+// SIDEBAR THEME GENERAL STYLES.
+@mixin theme ($sidebar-bg, $sidebar-divider, $link, $link-bg, $dropdown-item, $dropdown-item-bg, $dropdown-item-active, $dropdown-item-active-bg) {
+
+    background-color: $sidebar-bg;
+
+    .nav-link {
+        color: $link;
+
+        &:hover {
+            color: $link;
+            background-color: $link-bg;
+        }
+
+        &:active,
+        &.active {
+            color: $link;
+            background-color: $link-bg;
+
+            &:hover {
+                background-color: darken($link-bg, 5%);
+            }
+        }
+    }
+
+    .dropdown-divider {
+        border-top-color: $sidebar-divider;
+    }
+
+    .dropdown-item {
+        color: $dropdown-item;
+        background-color: $dropdown-item-bg;
+
+        &:hover {
+            color: $dropdown-item-active;
+            background-color: darken($dropdown-item-bg, 5%);
+        }
+
+        &:active,
+        &.active {
+            color: $dropdown-item-active;
+            background-color: $dropdown-item-active-bg;
+
+            &:hover {
+                background-color: darken($dropdown-item-active-bg, 5%);
+            }
+        }
+    }
+
+    // Submenu divider revamped. :(
+    .submenu {
+        .dropdown-divider {
+            background-color: $dropdown-item-bg;
+
+            &:before {
+                background-color: darken($sidebar-divider, 5%);
+            }
+        }
+    }
+
+    // Second Level ----------------------.
+    ul.nav > li.nav-item.has-submenu.active > .nav-link {
+        color: $link;
+        background-color: $link-bg;
+
+        &:hover {
+            background-color: darken($link-bg, 5%);
+        }
+    }
+
+    // Third Level -----------------------.
+    ul > li.has-submenu > ul > li.has-submenu > .nav-link {
+        color: $dropdown-item;
+        background-color: $dropdown-item-bg;
+    }
+
+    ul > li.has-submenu > ul > li.has-submenu.active > .nav-link {
+        color: $link;
+        background-color: $dropdown-item-active-bg;
+
+        &:hover {
+            background-color: darken($dropdown-item-active-bg, 5%);
+        }
+    }
+
+    // Submenu Third level icon color.
+    ul > li.has-submenu > ul > li.has-submenu .dropdown-item:before {
+        color: $dropdown-item;
+    }
+
+    ul > li.has-submenu > ul > li.has-submenu.active .dropdown-item:before {
+        color: $dropdown-item-active;
+    }
+}
+
+// THEME FOR COLLAPSED SIDEBAR.
+// Applicable for Collapsed sidebar.
+@mixin theme_mini($link, $link-bg, $dropdown-item, $dropdown-item-bg) {
+    .submenu {
+        background-color: $dropdown-item-bg;
+    }
+
+    ul.nav > li.nav-item:not(.has-submenu) > .nav-link:hover > span {
+        color: $link;
+        background-color: $link-bg;
+    }
+
+    // Submenu title.
+    ul.nav > li.nav-item > .submenu:not([data-submenu-title=""]):before {
+        color: $link;
+        background-color: $link-bg;
+        border-bottom-color: darken($link-bg, 20%);
+    }
+}
+
+
+// --------------------------
+// Theme: Light
+// --------------------------
+
+$sidebar-bg: #fff;
+$sidebar-divider: darken($sidebar-bg, 10%);
+$link: #333;
+$link-bg: $color-new-bg;
+$dropdown-item: lighten($color-dark, 20%);
+$dropdown-item-bg: darken($sidebar-bg, 5%);
+$dropdown-item-active: $color-dark;
+$dropdown-item-active-bg: #ebe2f1;
+
+.sidebar-light {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    @include theme($sidebar-bg, $sidebar-divider, $link, $link-bg, $dropdown-item, $dropdown-item-bg, $dropdown-item-active, $dropdown-item-active-bg);
+}
+
+@media (min-width: 768px) {
+    .sidebar-mini {
+        .sidebar-light {
+            @include theme_mini($link, $link-bg, $dropdown-item, $dropdown-item-bg);
+        }
+    }
+}
+
+// --------------------------
+// Theme: Dark
+// --------------------------
+
+$sidebar-bg: lighten($color-dark, 5%);
+$sidebar-divider: darken($sidebar-bg, 10%);
+$link: #fff;
+$link-bg: $color-0;
+$dropdown-item: darken($link, 25%);
+$dropdown-item-bg: darken($color-dark, 2%);
+$dropdown-item-active: #fff;
+$dropdown-item-active-bg: #617e97;
+
+.sidebar-dark {
+    @include theme($sidebar-bg, $sidebar-divider, $link, $link-bg, $dropdown-item, $dropdown-item-bg, $dropdown-item-active, $dropdown-item-active-bg);
+}
+
+@media (min-width: 768px) {
+    .sidebar-mini {
+        .sidebar-dark {
+            @include theme_mini($link, $link-bg, $dropdown-item, $dropdown-item-bg);
+        }
+    }
+}

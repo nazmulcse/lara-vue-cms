@@ -1,0 +1,20 @@
+/*
+| Bootstrap 4 Overrides
+*/
+.pagination {
+    display: inline-flex;
+}
+
+.card-header {
+    position: relative;
+}
+
+.alert-warning {
+    color: #aa3510;
+    background-color: #ffd556;
+    border-color: #f5c842;
+}
+
+.border-warning {
+    border-color: #ff9800 !important;
+}

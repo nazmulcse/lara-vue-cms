@@ -1,0 +1,120 @@
+/*
+| ------------------------------------------------------------
+| Front-end style sheet
+| ------------------------------------------------------------
+|
+| Styles specific to the front end of the Application only.
+|
+| Get the compiled file under:
+| public/css/frontend.css
+| ------------------------------------------------------------
+*/
+
+// Variables
+@import "variables";
+
+// Web Dependencies
+@import "vendors";
+
+// Enable font-embed
+@import "../typography";
+
+// Icons.
+@import "../icons";
+
+// Bootstrap Overrides
+@import "bootstrap-overrides";
+
+// Utilities
+@import "utility";
+
+// Dashboard
+@import "dashboard";
+
+// ---------------------------------------------
+// Common
+// ---------------------------------------------
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+blockquote {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    font-size: 1.25rem;
+    border-left: solid 5px $color-0;
+
+    p:last-of-type {
+        margin-bottom: 0;
+    }
+
+    cite {
+        position: relative;
+        margin-left: 1rem;
+
+        &:before {
+            content: "-";
+            display: block;
+            position: absolute;
+            left: -1rem;
+        }
+    }
+}
+
+.frontpage-sections {
+    padding: 4rem 2rem;
+}
+
+#hero {
+    position: relative;
+    background-color: #125325; // Dark Green.
+    background-image: url('../../images/background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 30%;
+    background-attachment: fixed;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(12, 40, 14, 0.1);
+    }
+}
+
+#top-bar,
+.head-section,
+.filter-panel {
+    z-index: 1;
+    position: relative;
+}
+
+// Dropdown menu is hiding inside.
+.site-header {
+    z-index: 2;
+}
+
+#top-bar {
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.footer-silhouette {
+    background-image: url('../../images/village-silhouette.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position: bottom center;
+}
+
+.site-footer {
+    background: rgb(27,79,58);
+    background: linear-gradient(0deg, rgba(27,79,58,1) 0%, rgba(56,114,75,1) 100%);
+}
+
+.footer-dark {
+    background-color: rgb(27,79,58);
+}

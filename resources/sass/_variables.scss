@@ -1,0 +1,32 @@
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: "Source Sans Pro", sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.6;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66d9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+
+$color-0: #2574a9;
+$color-dark: #343a40;
+$dark: #343a40;
+$color-new: #194670;
+$color-new-bg: #e2e9f1;
+
+// App variables
+$base-font: $font-family-sans-serif;
+
+$theme-colors: (
+    "primary": $color-0
+);

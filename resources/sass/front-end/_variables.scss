@@ -1,0 +1,55 @@
+/*
+| ------------------------------------------------------------
+| Variables
+| ------------------------------------------------------------
+|
+| Collection variables necessary to the Application.
+|
+| There are some vendor variables to override their vars
+| where necessary.
+|
+| A partial file.
+| ------------------------------------------------------------
+|*/
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66d9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+$dark-blue: #152238;
+
+$color-0: $blue;
+$color-1: darken($color-0, 10%);
+$color-1-bg: darken($color-0, 20%);
+$color-2: #d9e0e3; // Lighten of $color-0
+
+// ---------------
+// Typography
+// ---------------
+$font-family-sans-serif: "Source Sans Pro", sans-serif;
+
+$base-font: $font-family-sans-serif;
+$cursive-font: "EdwardianScriptITC", cursive;
+
+// ---------------
+// Overriding Bootstrap Variables
+// ---------------
+$font-family-sans-serif: $font-family-sans-serif;
+// $gray-light:     $color-gray;
+// $font-size-base: 16px;
+// $link-color:     $color-1;
+$body-bg: #fff;
+
+$theme-colors: (
+    "primary": $color-0,
+    "dark": $dark-blue
+);
+
+$breadcrumb-divider: quote("»");

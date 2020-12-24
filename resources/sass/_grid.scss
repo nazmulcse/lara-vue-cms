@@ -1,0 +1,35 @@
+/*
+| List/Grid Styles
+*/
+.grid-utilities {
+    visibility: hidden;
+
+    .btn {
+        padding-top: 0;
+        padding-bottom: 0;
+        border-right: 1px solid #ccc;
+        font-size: 13px;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
+    }
+}
+
+.table {
+    tbody tr:hover {
+        .grid-utilities {
+            visibility: visible;
+        }
+    }
+}
+
+.btn-clear-filter,
+.btn-clear-filter-no-reload {
+    border: 1px solid #ccc;
+}
