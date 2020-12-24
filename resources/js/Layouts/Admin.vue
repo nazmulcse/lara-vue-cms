@@ -3,7 +3,7 @@
     <!-- Header -->
       <admin-header/>
     <!-- Header -->
-    <div class="body-content">
+    <div class="body-content d-flex">
       <aside class="sidebar sidebar-dark sidebar-expand-md" data-navtype="accordion">
         <admin-sidebar/>
       </aside>

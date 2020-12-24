@@ -9,7 +9,6 @@ import { InertiaForm } from 'laravel-jetstream';
 import { InertiaProgress } from '@inertiajs/progress/src'
 import PortalVue from 'portal-vue';
 import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
-import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.mixin({ methods: { route } });
