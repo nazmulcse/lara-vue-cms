@@ -12,8 +12,8 @@
             </tr>
         </thead>
         <tbody>
-          <tr v-for="contact in contacts.data" :key="contact.id">
-            <th scope="row">1</th>
+          <tr v-for="(contact, index) in contacts.data" :key="contact.id">
+            <th scope="row">{{ index+1 }}</th>
             <td>{{ contact.first_name }}</td>
             <td>{{ contact.last_name }}</td>
             <td>{{ contact.email }}</td>

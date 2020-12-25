@@ -71404,9 +71404,11 @@ var render = function() {
           _vm._v(" "),
           _c(
             "tbody",
-            _vm._l(_vm.contacts.data, function(contact) {
+            _vm._l(_vm.contacts.data, function(contact, index) {
               return _c("tr", { key: contact.id }, [
-                _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
+                _c("th", { attrs: { scope: "row" } }, [
+                  _vm._v(_vm._s(index + 1))
+                ]),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(contact.first_name))]),
                 _vm._v(" "),
