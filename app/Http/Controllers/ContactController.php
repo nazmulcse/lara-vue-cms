@@ -11,17 +11,7 @@ class ContactController extends Controller
     public function index()
     {
         $data = [
-            'contacts' => Contact::all()->map(function ($contact) {
-                return [
-                    'id' => $contact->id,
-                    'first_name' => $contact->first_name,
-                    'last_name' => $contact->last_name,
-                    'email' => $contact->email,
-                    'phone' => $contact->phone,
-                    'address' => $contact->address,
-                    'edit_url' => "#",
-                ];
-            })
+            'contacts' => Contact::paginate(10)
         ];
         return Inertia::render('Contacts/List', $data);
     }

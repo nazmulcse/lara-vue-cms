@@ -6,10 +6,10 @@ import VueMeta from 'vue-meta'
 
 import { InertiaApp } from '@inertiajs/inertia-vue';
 import { InertiaForm } from 'laravel-jetstream';
-import { InertiaProgress } from '@inertiajs/progress/src'
 import PortalVue from 'portal-vue';
 import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import { InertiaProgress } from '@inertiajs/progress'
 
 Vue.mixin({ methods: { route } });
 Vue.use(InertiaApp);
@@ -20,17 +20,13 @@ Vue.use(BootstrapVue)
 
 InertiaProgress.init()
 
-const app = document.getElementById('app');
+const el = document.getElementById('app')
 
 new Vue({
-    metaInfo: {
-        titleTemplate: (title) => title ? `${title} - LaraVue CMS` : 'LaraVue CMS'
-      },
-    render: (h) =>
-        h(InertiaApp, {
-            props: {
-                initialPage: JSON.parse(app.dataset.page),
-                resolveComponent: (name) => require(`./Pages/${name}`).default,
-            },
-        }),
-}).$mount(app);
+  render: h => h(InertiaApp, {
+    props: {
+      initialPage: JSON.parse(el.dataset.page),
+      resolveComponent: name => require(`./Pages/${name}`).default,
+    },
+  }),
+}).$mount(el)

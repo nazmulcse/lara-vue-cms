@@ -20,7 +20,7 @@ use App\Http\Controllers\ContactController;
 Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard');
     // ->middleware('auth');
-Route::get('/contacts', [ContactController::class, 'index'])->name('contact');
+Route::get('/contacts', [ContactController::class, 'index'])->name('contact.list');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');

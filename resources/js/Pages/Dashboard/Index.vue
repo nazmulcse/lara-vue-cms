@@ -11,10 +11,6 @@
     <p class="leading-normal">👆 These links are intended to be broken to illustrate how error handling works with Inertia.js.</p>
     <p class="leading-normal">👆 These links are intended to be broken to illustrate how error handling works with Inertia.js.</p>
     <p class="leading-normal">👆 These links are intended to be broken to illustrate how error handling works with Inertia.js.</p>
-    <p class="leading-normal">👆 These links are intended to be broken to illustrate how error handling works with Inertia.js.</p>
-    <p class="leading-normal">👆 These links are intended to be broken to illustrate how error handling works with Inertia.js.</p>
-    <p class="leading-normal">👆 These links are intended to be broken to illustrate how error handling works with Inertia.js.</p>
-    <p class="leading-normal">👆 These links are intended to be broken to illustrate how error handling works with Inertia.js.</p>
   </div>
 </template>
 

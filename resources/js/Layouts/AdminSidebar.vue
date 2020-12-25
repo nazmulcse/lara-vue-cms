@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-content">
+  <div class="sidebar-content vh-100">
     <nav class="sidebar-nav">
       <ul class="nav flex-column nav-pills">
         <li class="nav-item has-submenu b-nav-dropdown dropdown">
@@ -29,10 +29,11 @@
             </ul>
         </li>
         <li class="nav-item">
-            <a class="nav-link " href="https://mislgsp.gov.bd/bn/admin/inspections/list">
-                <i class="icon-stack-text" aria-hidden="true"></i>
-                <span>পরিদর্শন</span>
-            </a>
+          <inertia-link showProgress="true" class="nav-link" :href="route('contact.list')">
+            <i class="icon-stack-text" aria-hidden="true"></i>
+                <span>Contacts</span>
+          </inertia-link>
+            
         </li>
       </ul>
     </nav>

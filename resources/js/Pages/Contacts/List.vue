@@ -12,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-          <tr v-for="contact in contacts" :key="contact.id">
+          <tr v-for="contact in contacts.data" :key="contact.id">
             <th scope="row">1</th>
             <td>{{ contact.first_name }}</td>
             <td>{{ contact.last_name }}</td>
@@ -21,7 +21,8 @@
         </tbody>
         </table>
     </div>
-     <p class="leading-normal">👆 These links are intended to be broken to illustrate how error handling works with Inertia.js.</p>
+      <!-- {{ contacts.links }} -->
+     <pagination :links="contacts.links" />
   </div>
 </template>
 <script>
@@ -41,6 +42,8 @@ export default {
     Pagination,
     SearchFilter,
   },
-  props: ['contacts'],
+  props: {
+    contacts: Object,
+  },
 }
 </script>

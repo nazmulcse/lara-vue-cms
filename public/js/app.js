@@ -112,169 +112,15 @@ var e,t=(e=__webpack_require__(/*! axios */ "./node_modules/axios/index.js"))&&"
 
 /***/ }),
 
-/***/ "./node_modules/@inertiajs/progress/src/index.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/@inertiajs/progress/src/index.js ***!
-  \*******************************************************/
-/*! exports provided: InertiaProgress */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./node_modules/@inertiajs/progress/dist/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@inertiajs/progress/dist/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _progress__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./progress */ "./node_modules/@inertiajs/progress/src/progress.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "InertiaProgress", function() { return _progress__WEBPACK_IMPORTED_MODULE_0__["default"]; });
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/@inertiajs/progress/src/progress.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/@inertiajs/progress/src/progress.js ***!
-  \**********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! nprogress */ "./node_modules/nprogress/nprogress.js");
-/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  delay: null,
-  timeout: null,
-  inProgress: 0,
-
-  init({ delay = 250, color = '#29d', includeCSS = true, showSpinner = false } = {}) {
-    this.delay = delay
-
-    this.configureNProgress({ showSpinner })
-    this.registerEvents()
-
-    if (includeCSS) {
-      this.injectCSS(color)
-    }
-  },
-
-  configureNProgress(config) {
-    nprogress__WEBPACK_IMPORTED_MODULE_0___default.a.configure(config)
-  },
-
-  registerEvents() {
-    document.addEventListener('inertia:start', this.start.bind(this))
-    document.addEventListener('inertia:progress', this.progress.bind(this))
-    document.addEventListener('inertia:finish', this.finish.bind(this))
-  },
-
-  injectCSS(color) {
-    const element = document.createElement('style')
-    element.type = 'text/css'
-    element.textContent = `
-      #nprogress {
-        pointer-events: none;
-      }
-
-      #nprogress .bar {
-        background: ${color};
-
-        position: fixed;
-        z-index: 1031;
-        top: 0;
-        left: 0;
-
-        width: 100%;
-        height: 2px;
-      }
-
-      #nprogress .peg {
-        display: block;
-        position: absolute;
-        right: 0px;
-        width: 100px;
-        height: 100%;
-        box-shadow: 0 0 10px ${color}, 0 0 5px ${color};
-        opacity: 1.0;
-
-        -webkit-transform: rotate(3deg) translate(0px, -4px);
-            -ms-transform: rotate(3deg) translate(0px, -4px);
-                transform: rotate(3deg) translate(0px, -4px);
-      }
-
-      #nprogress .spinner {
-        display: block;
-        position: fixed;
-        z-index: 1031;
-        top: 15px;
-        right: 15px;
-      }
-
-      #nprogress .spinner-icon {
-        width: 18px;
-        height: 18px;
-        box-sizing: border-box;
-
-        border: solid 2px transparent;
-        border-top-color: ${color};
-        border-left-color: ${color};
-        border-radius: 50%;
-
-        -webkit-animation: nprogress-spinner 400ms linear infinite;
-                animation: nprogress-spinner 400ms linear infinite;
-      }
-
-      .nprogress-custom-parent {
-        overflow: hidden;
-        position: relative;
-      }
-
-      .nprogress-custom-parent #nprogress .spinner,
-      .nprogress-custom-parent #nprogress .bar {
-        position: absolute;
-      }
-
-      @-webkit-keyframes nprogress-spinner {
-        0%   { -webkit-transform: rotate(0deg); }
-        100% { -webkit-transform: rotate(360deg); }
-      }
-      @keyframes nprogress-spinner {
-        0%   { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-    `
-    document.head.appendChild(element)
-  },
-
-  start(event) {
-    Promise.resolve().then(() => {
-      if (event.defaultPrevented) {
-        return
-      }
-
-      this.inProgress++
-      clearTimeout(this.timeout)
-      this.timeout = setTimeout(() => {
-        nprogress__WEBPACK_IMPORTED_MODULE_0___default.a.set(0)
-        nprogress__WEBPACK_IMPORTED_MODULE_0___default.a.start()
-      }, this.delay)
-    })
-  },
-
-  progress(event) {
-    if (nprogress__WEBPACK_IMPORTED_MODULE_0___default.a.isStarted() && event.detail.progress.percentage) {
-      nprogress__WEBPACK_IMPORTED_MODULE_0___default.a.set(event.detail.progress.percentage / 100 * .9)
-    }
-  },
-
-  finish() {
-    this.inProgress--
-    if (this.inProgress === 0) {
-      nprogress__WEBPACK_IMPORTED_MODULE_0___default.a.done()
-      clearTimeout(this.timeout)
-    }
-  },
-});
+var n,e=(n=__webpack_require__(/*! nprogress */ "./node_modules/nprogress/nprogress.js"))&&"object"==typeof n&&"default"in n?n.default:n;exports.InertiaProgress={delay:null,timeout:null,inProgress:0,init:function(n){var e=void 0===n?{}:n,t=e.delay,r=e.color,i=void 0===r?"#29d":r,s=e.includeCSS,o=void 0===s||s,a=e.showSpinner,p=void 0!==a&&a;this.delay=void 0===t?250:t,this.configureNProgress({showSpinner:p}),this.registerEvents(),o&&this.injectCSS(i)},configureNProgress:function(n){e.configure(n)},registerEvents:function(){document.addEventListener("inertia:start",this.start.bind(this)),document.addEventListener("inertia:progress",this.progress.bind(this)),document.addEventListener("inertia:finish",this.finish.bind(this))},injectCSS:function(n){var e=document.createElement("style");e.type="text/css",e.textContent="\n      #nprogress {\n        pointer-events: none;\n      }\n\n      #nprogress .bar {\n        background: "+n+";\n\n        position: fixed;\n        z-index: 1031;\n        top: 0;\n        left: 0;\n\n        width: 100%;\n        height: 2px;\n      }\n\n      #nprogress .peg {\n        display: block;\n        position: absolute;\n        right: 0px;\n        width: 100px;\n        height: 100%;\n        box-shadow: 0 0 10px "+n+", 0 0 5px "+n+";\n        opacity: 1.0;\n\n        -webkit-transform: rotate(3deg) translate(0px, -4px);\n            -ms-transform: rotate(3deg) translate(0px, -4px);\n                transform: rotate(3deg) translate(0px, -4px);\n      }\n\n      #nprogress .spinner {\n        display: block;\n        position: fixed;\n        z-index: 1031;\n        top: 15px;\n        right: 15px;\n      }\n\n      #nprogress .spinner-icon {\n        width: 18px;\n        height: 18px;\n        box-sizing: border-box;\n\n        border: solid 2px transparent;\n        border-top-color: "+n+";\n        border-left-color: "+n+";\n        border-radius: 50%;\n\n        -webkit-animation: nprogress-spinner 400ms linear infinite;\n                animation: nprogress-spinner 400ms linear infinite;\n      }\n\n      .nprogress-custom-parent {\n        overflow: hidden;\n        position: relative;\n      }\n\n      .nprogress-custom-parent #nprogress .spinner,\n      .nprogress-custom-parent #nprogress .bar {\n        position: absolute;\n      }\n\n      @-webkit-keyframes nprogress-spinner {\n        0%   { -webkit-transform: rotate(0deg); }\n        100% { -webkit-transform: rotate(360deg); }\n      }\n      @keyframes nprogress-spinner {\n        0%   { transform: rotate(0deg); }\n        100% { transform: rotate(360deg); }\n      }\n    ",document.head.appendChild(e)},start:function(n){var t=this;Promise.resolve().then(function(){n.defaultPrevented||(t.inProgress++,clearTimeout(t.timeout),t.timeout=setTimeout(function(){e.set(0),e.start()},t.delay))})},progress:function(n){e.isStarted()&&n.detail.progress.percentage&&e.set(n.detail.progress.percentage/100*.9)},finish:function(){this.inProgress--,0===this.inProgress&&(e.done(),clearTimeout(this.timeout))}};
+//# sourceMappingURL=index.js.map
 
 
 /***/ }),
@@ -3196,6 +3042,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -3877,6 +3724,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -3894,7 +3742,9 @@ __webpack_require__.r(__webpack_exports__);
     Pagination: _Shared_Pagination__WEBPACK_IMPORTED_MODULE_3__["default"],
     SearchFilter: _Shared_SearchFilter__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
-  props: ['contacts']
+  props: {
+    contacts: Object
+  }
 });
 
 /***/ }),
@@ -3949,10 +3799,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_Admin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/Admin */ "./resources/js/Layouts/Admin.vue");
-//
-//
-//
-//
 //
 //
 //
@@ -4941,6 +4787,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -35901,7 +35756,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".sidebar-dark[data-v-c09e41de] {\n  background-color: #3f474e;\n}\r\n", ""]);
+exports.push([module.i, ".sidebar-dark[data-v-c09e41de] {\n  background-color: #3f474e;\n}\n", ""]);
 
 // exports
 
@@ -69956,7 +69811,7 @@ var staticRenderFns = [
                 staticClass: "active btn btn-outline-light btn-sm",
                 attrs: { href: "https://mislgsp.gov.bd/bn//admin" }
               },
-              [_vm._v("\r\n               বাংলা\r\n               ")]
+              [_vm._v("\n               বাংলা\n               ")]
             ),
             _vm._v(" "),
             _c(
@@ -69965,7 +69820,7 @@ var staticRenderFns = [
                 staticClass: " btn btn-outline-light btn-sm",
                 attrs: { href: "https://mislgsp.gov.bd/en//admin" }
               },
-              [_vm._v("\r\n               English\r\n               ")]
+              [_vm._v("\n               English\n               ")]
             )
           ]
         )
@@ -69994,122 +69849,22 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sidebar-content" }, [
-      _c("nav", { staticClass: "sidebar-nav" }, [
-        _c("ul", { staticClass: "nav flex-column nav-pills" }, [
-          _c(
-            "li",
-            { staticClass: "nav-item has-submenu b-nav-dropdown dropdown" },
-            [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link dropdown-toggle",
-                  attrs: { href: "javascript:" }
-                },
-                [
-                  _c("i", {
-                    staticClass: "icon-puzzle3",
-                    attrs: { "aria-hidden": "true" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("মিটিং ট্র্যাকার")])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "ul",
-                {
-                  staticClass: "submenu",
-                  attrs: { "data-submenu-title": "মিটিং ট্র্যাকার" }
-                },
-                [
-                  _c("li", [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "dropdown-item ",
-                        attrs: {
-                          href:
-                            "https://mislgsp.gov.bd/bn/admin/mtr/mtr-up/list"
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                      মিটিং ট্র্যাকার (ইউপি)\n                  "
-                        )
-                      ]
-                    )
-                  ])
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "nav-item has-submenu b-nav-dropdown dropdown" },
-            [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link dropdown-toggle",
-                  attrs: { href: "javascript:" }
-                },
-                [
-                  _c("i", {
-                    staticClass: "icon-puzzle3",
-                    attrs: { "aria-hidden": "true" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Scheme")])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "ul",
-                {
-                  staticClass: "submenu",
-                  attrs: { "data-submenu-title": "মিটিং ট্র্যাকার" }
-                },
-                [
-                  _c("li", [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "dropdown-item ",
-                        attrs: {
-                          href:
-                            "https://mislgsp.gov.bd/bn/admin/mtr/mtr-up/list"
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                      BGCC Meeting\n                  "
-                        )
-                      ]
-                    )
-                  ])
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
+  return _c("div", { staticClass: "sidebar-content vh-100" }, [
+    _c("nav", { staticClass: "sidebar-nav" }, [
+      _c("ul", { staticClass: "nav flex-column nav-pills" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "li",
+          { staticClass: "nav-item" },
+          [
             _c(
-              "a",
+              "inertia-link",
               {
-                staticClass: "nav-link ",
-                attrs: {
-                  href: "https://mislgsp.gov.bd/bn/admin/inspections/list"
-                }
+                staticClass: "nav-link",
+                attrs: { showProgress: "true", href: _vm.route("contact.list") }
               },
               [
                 _c("i", {
@@ -70117,13 +69872,120 @@ var staticRenderFns = [
                   attrs: { "aria-hidden": "true" }
                 }),
                 _vm._v(" "),
-                _c("span", [_vm._v("পরিদর্শন")])
+                _c("span", [_vm._v("Contacts")])
               ]
             )
-          ])
-        ])
+          ],
+          1
+        )
       ])
     ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "li",
+      { staticClass: "nav-item has-submenu b-nav-dropdown dropdown" },
+      [
+        _c(
+          "a",
+          {
+            staticClass: "nav-link dropdown-toggle",
+            attrs: { href: "javascript:" }
+          },
+          [
+            _c("i", {
+              staticClass: "icon-puzzle3",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("span", [_vm._v("মিটিং ট্র্যাকার")])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "ul",
+          {
+            staticClass: "submenu",
+            attrs: { "data-submenu-title": "মিটিং ট্র্যাকার" }
+          },
+          [
+            _c("li", [
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item ",
+                  attrs: {
+                    href: "https://mislgsp.gov.bd/bn/admin/mtr/mtr-up/list"
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                      মিটিং ট্র্যাকার (ইউপি)\n                  "
+                  )
+                ]
+              )
+            ])
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "li",
+      { staticClass: "nav-item has-submenu b-nav-dropdown dropdown" },
+      [
+        _c(
+          "a",
+          {
+            staticClass: "nav-link dropdown-toggle",
+            attrs: { href: "javascript:" }
+          },
+          [
+            _c("i", {
+              staticClass: "icon-puzzle3",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("span", [_vm._v("Scheme")])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "ul",
+          {
+            staticClass: "submenu",
+            attrs: { "data-submenu-title": "মিটিং ট্র্যাকার" }
+          },
+          [
+            _c("li", [
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-item ",
+                  attrs: {
+                    href: "https://mislgsp.gov.bd/bn/admin/mtr/mtr-up/list"
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                      BGCC Meeting\n                  "
+                  )
+                ]
+              )
+            ])
+          ]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -71529,37 +71391,39 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", { staticClass: "mb-8 font-bold text-3xl" }, [_vm._v("Contacts")]),
-    _vm._v(" "),
-    _c("div", { staticClass: "contact" }, [
-      _c("table", { staticClass: "table" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.contacts, function(contact) {
-            return _c("tr", { key: contact.id }, [
-              _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(contact.first_name))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(contact.last_name))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(contact.email))])
-            ])
-          }),
-          0
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _c("p", { staticClass: "leading-normal" }, [
-      _vm._v(
-        "👆 These links are intended to be broken to illustrate how error handling works with Inertia.js."
-      )
-    ])
-  ])
+  return _c(
+    "div",
+    [
+      _c("h1", { staticClass: "mb-8 font-bold text-3xl" }, [
+        _vm._v("Contacts")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "contact" }, [
+        _c("table", { staticClass: "table" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.contacts.data, function(contact) {
+              return _c("tr", { key: contact.id }, [
+                _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(contact.first_name))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(contact.last_name))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(contact.email))])
+              ])
+            }),
+            0
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("pagination", { attrs: { links: _vm.contacts.links } })
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -71682,30 +71546,6 @@ var render = function() {
       ],
       1
     ),
-    _vm._v(" "),
-    _c("p", { staticClass: "leading-normal" }, [
-      _vm._v(
-        "👆 These links are intended to be broken to illustrate how error handling works with Inertia.js."
-      )
-    ]),
-    _vm._v(" "),
-    _c("p", { staticClass: "leading-normal" }, [
-      _vm._v(
-        "👆 These links are intended to be broken to illustrate how error handling works with Inertia.js."
-      )
-    ]),
-    _vm._v(" "),
-    _c("p", { staticClass: "leading-normal" }, [
-      _vm._v(
-        "👆 These links are intended to be broken to illustrate how error handling works with Inertia.js."
-      )
-    ]),
-    _vm._v(" "),
-    _c("p", { staticClass: "leading-normal" }, [
-      _vm._v(
-        "👆 These links are intended to be broken to illustrate how error handling works with Inertia.js."
-      )
-    ]),
     _vm._v(" "),
     _c("p", { staticClass: "leading-normal" }, [
       _vm._v(
@@ -73567,42 +73407,45 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "mt-6 -mb-1 flex flex-wrap" },
-    [
-      _vm._l(_vm.links, function(link, key) {
-        return [
-          link.url === null
-            ? _c(
-                "div",
-                {
-                  key: key,
-                  staticClass:
-                    "mr-1 mb-1 px-4 py-3 text-sm border rounded text-gray-400",
-                  class: { "ml-auto": link.label === "Next" }
-                },
-                [_vm._v(_vm._s(link.label))]
+  return _c("div", { staticClass: "row small text-muted" }, [
+    _c("div", { staticClass: "col-sm-4 pt-1" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-sm-8 text-sm-right" }, [
+      _c(
+        "ul",
+        { staticClass: "pagination", attrs: { role: "navigation" } },
+        [
+          _vm._l(_vm.links, function(link, key) {
+            return [
+              _c(
+                "li",
+                { staticClass: "page-item", class: { active: link.active } },
+                [
+                  _c(
+                    "inertia-link",
+                    {
+                      key: key,
+                      staticClass: "page-link",
+                      attrs: { href: link.url }
+                    },
+                    [
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(link.label) +
+                          " \n            "
+                      )
+                    ]
+                  )
+                ],
+                1
               )
-            : _c(
-                "inertia-link",
-                {
-                  key: key,
-                  staticClass:
-                    "mr-1 mb-1 px-4 py-3 text-sm border rounded hover:bg-white focus:border-indigo-500 focus:text-indigo-500",
-                  class: {
-                    "bg-white": link.active,
-                    "ml-auto": link.label === "Next"
-                  },
-                  attrs: { href: link.url }
-                },
-                [_vm._v(_vm._s(link.label))]
-              )
-        ]
-      })
-    ],
-    2
-  )
+            ]
+          })
+        ],
+        2
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -91044,12 +90887,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var laravel_jetstream__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! laravel-jetstream */ "./node_modules/laravel-jetstream/dist/index.js");
 /* harmony import */ var laravel_jetstream__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(laravel_jetstream__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _inertiajs_progress_src__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/progress/src */ "./node_modules/@inertiajs/progress/src/index.js");
-/* harmony import */ var portal_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! portal-vue */ "./node_modules/portal-vue/dist/portal-vue.common.js");
-/* harmony import */ var portal_vue__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(portal_vue__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var bootstrap_vue_dist_bootstrap_vue_esm__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! bootstrap-vue/dist/bootstrap-vue.esm */ "./node_modules/bootstrap-vue/dist/bootstrap-vue.esm.js");
-/* harmony import */ var bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! bootstrap-vue/dist/bootstrap-vue.css */ "./node_modules/bootstrap-vue/dist/bootstrap-vue.css");
-/* harmony import */ var bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var portal_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! portal-vue */ "./node_modules/portal-vue/dist/portal-vue.common.js");
+/* harmony import */ var portal_vue__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(portal_vue__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var bootstrap_vue_dist_bootstrap_vue_esm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! bootstrap-vue/dist/bootstrap-vue.esm */ "./node_modules/bootstrap-vue/dist/bootstrap-vue.esm.js");
+/* harmony import */ var bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! bootstrap-vue/dist/bootstrap-vue.css */ "./node_modules/bootstrap-vue/dist/bootstrap-vue.css");
+/* harmony import */ var bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _inertiajs_progress__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @inertiajs/progress */ "./node_modules/@inertiajs/progress/dist/index.js");
+/* harmony import */ var _inertiajs_progress__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_inertiajs_progress__WEBPACK_IMPORTED_MODULE_7__);
 __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 
 
@@ -91067,28 +90911,23 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__["InertiaApp"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(laravel_jetstream__WEBPACK_IMPORTED_MODULE_3__["InertiaForm"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(portal_vue__WEBPACK_IMPORTED_MODULE_5___default.a);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(portal_vue__WEBPACK_IMPORTED_MODULE_4___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_meta__WEBPACK_IMPORTED_MODULE_1__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(bootstrap_vue_dist_bootstrap_vue_esm__WEBPACK_IMPORTED_MODULE_6__["default"]);
-_inertiajs_progress_src__WEBPACK_IMPORTED_MODULE_4__["InertiaProgress"].init();
-var app = document.getElementById('app');
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(bootstrap_vue_dist_bootstrap_vue_esm__WEBPACK_IMPORTED_MODULE_5__["default"]);
+_inertiajs_progress__WEBPACK_IMPORTED_MODULE_7__["InertiaProgress"].init();
+var el = document.getElementById('app');
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  metaInfo: {
-    titleTemplate: function titleTemplate(title) {
-      return title ? "".concat(title, " - LaraVue CMS") : 'LaraVue CMS';
-    }
-  },
   render: function render(h) {
     return h(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_2__["InertiaApp"], {
       props: {
-        initialPage: JSON.parse(app.dataset.page),
+        initialPage: JSON.parse(el.dataset.page),
         resolveComponent: function resolveComponent(name) {
           return __webpack_require__("./resources/js/Pages sync recursive ^\\.\\/.*$")("./".concat(name))["default"];
         }
       }
     });
   }
-}).$mount(app);
+}).$mount(el);
 
 /***/ }),
 
@@ -91110,9 +90949,9 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Nazmul\Excercise\LaraVueCMS\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\Nazmul\Excercise\LaraVueCMS\resources\sass\admin.scss */"./resources/sass/admin.scss");
-module.exports = __webpack_require__(/*! D:\Nazmul\Excercise\LaraVueCMS\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! /var/www/html/Excercise/lara-vue-cms/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /var/www/html/Excercise/lara-vue-cms/resources/sass/admin.scss */"./resources/sass/admin.scss");
+module.exports = __webpack_require__(/*! /var/www/html/Excercise/lara-vue-cms/resources/css/app.css */"./resources/css/app.css");
 
 
 /***/ })
