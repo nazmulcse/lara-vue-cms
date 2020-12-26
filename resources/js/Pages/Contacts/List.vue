@@ -2,6 +2,7 @@
   <admin 
     page_header="Contacts"
     header_icon="icon-users"
+    :buttons="buttons"
     :breadcrumbs="breadcrumbs">
     <h1 class="mb-8 font-bold text-3xl">Contacts</h1>
     <div class="contact">
@@ -44,6 +45,9 @@ export default {
       breadcrumbs: [
         {url: "/contacts", title:"Contacts"},
         {url: "#", title:"List"}
+      ],
+      buttons: [
+        {url: "/contacts", title:"Add Contacts", class: "btn-sm btn-primary"}
       ]
     }
   },

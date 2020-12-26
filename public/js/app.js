@@ -2888,6 +2888,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2912,7 +2918,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     header_icon: String,
     page_header: String,
-    breadcrumbs: Array
+    breadcrumbs: Array,
+    buttons: Array
   },
   methods: {
     url: function url() {
@@ -3739,6 +3746,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -3758,6 +3766,11 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         url: "#",
         title: "List"
+      }],
+      buttons: [{
+        url: "/contacts",
+        title: "Add Contacts",
+        "class": "btn-sm btn-primary"
       }]
     };
   },
@@ -4812,6 +4825,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -69644,7 +69658,33 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-sm-6 breadcrumb-right" })
+              _c(
+                "div",
+                { staticClass: "col-sm-6 breadcrumb-right" },
+                [
+                  _vm._l(_vm.buttons, function(button, key) {
+                    return [
+                      _c(
+                        "inertia-link",
+                        {
+                          key: key,
+                          staticClass: "btn",
+                          class: button.class,
+                          attrs: { href: button.url }
+                        },
+                        [
+                          _vm._v(
+                            "\n                              " +
+                              _vm._s(button.title) +
+                              " \n                            "
+                          )
+                        ]
+                      )
+                    ]
+                  })
+                ],
+                2
+              )
             ])
           ]),
           _vm._v(" "),
@@ -71434,6 +71474,7 @@ var render = function() {
       attrs: {
         page_header: "Contacts",
         header_icon: "icon-users",
+        buttons: _vm.buttons,
         breadcrumbs: _vm.breadcrumbs
       }
     },
@@ -73462,15 +73503,19 @@ var render = function() {
               class: { active: link.active }
             },
             [
-              _c(
-                "inertia-link",
-                { staticClass: "page-link", attrs: { href: link.url } },
-                [
-                  _vm._v(
-                    "\n            " + _vm._s(link.label) + " \n          "
+              link.url
+                ? _c(
+                    "inertia-link",
+                    { staticClass: "page-link", attrs: { href: link.url } },
+                    [
+                      _vm._v(
+                        "\n            " + _vm._s(link.label) + " \n          "
+                      )
+                    ]
                   )
-                ]
-              )
+                : _c("span", { staticClass: "page-link" }, [
+                    _vm._v(" " + _vm._s(link.label) + "  ")
+                  ])
             ],
             1
           )

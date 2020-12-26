@@ -29,7 +29,13 @@
                       </ol>
                   </nav>
               </div>
-              <div class="col-sm-6 breadcrumb-right"></div>
+              <div class="col-sm-6 breadcrumb-right">
+                <template v-for="(button, key) in buttons">
+                  <inertia-link :key="key" :href="button.url" :class="button.class" class="btn">
+                                {{ button.title   }} 
+                              </inertia-link>
+                </template>
+              </div>
           </div>
         </div>
         <div class="page-content p-3">
@@ -66,7 +72,8 @@ export default {
   props: {
     header_icon: String,
     page_header: String,
-    breadcrumbs: Array
+    breadcrumbs: Array,
+    buttons: Array
   },
   methods: {
     url() {
