@@ -26,7 +26,7 @@
                </a>
             </div>
          </li>
-         <b-nav-item-dropdown right>
+        <b-nav-item-dropdown right>
           <!-- Using 'button-content' slot -->
           <template #button-content>
               <em>

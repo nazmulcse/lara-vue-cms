@@ -3747,6 +3747,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -71493,7 +71512,9 @@ var render = function() {
               _vm._v(" "),
               _c("th", { attrs: { scope: "col" } }, [_vm._v("Last Name")]),
               _vm._v(" "),
-              _c("th", { attrs: { scope: "col" } }, [_vm._v("Email")])
+              _c("th", { attrs: { scope: "col" } }, [_vm._v("Email")]),
+              _vm._v(" "),
+              _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")])
             ])
           ]),
           _vm._v(" "),
@@ -71509,7 +71530,40 @@ var render = function() {
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(contact.last_name))]),
                 _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(contact.email))])
+                _c("td", [_vm._v(_vm._s(contact.email))]),
+                _vm._v(" "),
+                _c("td", [
+                  _c("div", { staticClass: "dropdown" }, [
+                    _c(
+                      "div",
+                      [
+                        _c(
+                          "b-dropdown",
+                          {
+                            attrs: {
+                              size: "sm",
+                              text: "Action",
+                              variant: "outline-secondary"
+                            }
+                          },
+                          [
+                            _c("b-dropdown-item", { attrs: { href: "#" } }, [
+                              _c("em", [_vm._v("Edit")])
+                            ]),
+                            _vm._v(" "),
+                            _c("b-dropdown-divider"),
+                            _vm._v(" "),
+                            _c("b-dropdown-item", { attrs: { href: "#" } }, [
+                              _vm._v("Delete")
+                            ])
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ])
               ])
             }),
             0

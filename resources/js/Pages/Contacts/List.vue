@@ -13,6 +13,7 @@
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Email</th>
+            <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -21,6 +22,24 @@
             <td>{{ contact.first_name }}</td>
             <td>{{ contact.last_name }}</td>
             <td>{{ contact.email }}</td>
+            <td>
+              <div class="dropdown">
+                <!-- <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" :id="contact.id" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Action
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" :aria-labelledby="contact.id">
+                </div> -->
+                <div>
+                  <b-dropdown size="sm" text="Action" variant="outline-secondary">
+                    <b-dropdown-item href="#">
+                      <em>Edit</em>
+                    </b-dropdown-item>
+                    <b-dropdown-divider></b-dropdown-divider>
+                    <b-dropdown-item href="#">Delete</b-dropdown-item>
+                  </b-dropdown>
+                </div>
+              </div>
+            </td>
           </tr>
         </tbody>
         </table>
