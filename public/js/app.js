@@ -2882,6 +2882,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2902,6 +2908,11 @@ __webpack_require__.r(__webpack_exports__);
       showUserMenu: false,
       accounts: null
     };
+  },
+  props: {
+    header_icon: String,
+    page_header: String,
+    breadcrumbs: Array
   },
   methods: {
     url: function url() {
@@ -3725,6 +3736,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -3736,11 +3750,22 @@ __webpack_require__.r(__webpack_exports__);
   metaInfo: {
     title: 'Contacts'
   },
-  layout: _Layouts_Admin__WEBPACK_IMPORTED_MODULE_1__["default"],
+  data: function data() {
+    return {
+      breadcrumbs: [{
+        url: "/contacts",
+        title: "Contacts"
+      }, {
+        url: "#",
+        title: "List"
+      }]
+    };
+  },
   components: {
     Icon: _Shared_Icon__WEBPACK_IMPORTED_MODULE_0__["default"],
     Pagination: _Shared_Pagination__WEBPACK_IMPORTED_MODULE_3__["default"],
-    SearchFilter: _Shared_SearchFilter__WEBPACK_IMPORTED_MODULE_5__["default"]
+    SearchFilter: _Shared_SearchFilter__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Admin: _Layouts_Admin__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: {
     contacts: Object
@@ -4787,9 +4812,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
 //
 //
 //
@@ -69565,9 +69587,66 @@ var render = function() {
         ),
         _vm._v(" "),
         _c("main", { staticClass: "main" }, [
-          _vm._m(0),
+          _c("h3", { staticClass: "page-header pt-2 pb-2 pl-3 pr-3 mb-0" }, [
+            _c("i", {
+              staticClass:
+                "mr-2 float-left border border-secondary rounded-circle p-1 text-center",
+              class: _vm.header_icon
+            }),
+            _vm._v(
+              "\n        " +
+                _vm._s(_vm.page_header) +
+                "                \n      "
+            )
+          ]),
           _vm._v(" "),
-          _vm._m(1),
+          _c("div", { staticClass: "breadcrumb-line container-fluid" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-6" }, [
+                _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+                  _c(
+                    "ol",
+                    { staticClass: "breadcrumb pl-0" },
+                    _vm._l(_vm.breadcrumbs, function(breadcrumb, key) {
+                      return _c(
+                        "li",
+                        {
+                          key: key,
+                          staticClass: "breadcrumb-item active",
+                          attrs: { "aria-current": "page" }
+                        },
+                        [
+                          breadcrumb.url !== "#"
+                            ? _c(
+                                "inertia-link",
+                                { attrs: { href: breadcrumb.url } },
+                                [
+                                  _vm._v(
+                                    "\n                              " +
+                                      _vm._s(breadcrumb.title) +
+                                      " \n                            "
+                                  )
+                                ]
+                              )
+                            : _c("span", [
+                                _vm._v(
+                                  "\n                              " +
+                                    _vm._s(breadcrumb.title) +
+                                    " \n                            "
+                                )
+                              ])
+                        ],
+                        1
+                      )
+                    }),
+                    0
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-6 breadcrumb-right" })
+            ])
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "page-content p-3" }, [_vm._t("default")], 2)
         ])
@@ -69576,49 +69655,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h3", { staticClass: "page-header pt-2 pb-2 pl-3 pr-3 mb-0" }, [
-      _c("i", {
-        staticClass:
-          "icon-meter2 mr-2 float-left border border-secondary rounded-circle p-2 text-center"
-      }),
-      _vm._v("\n        ড্যাশবোর্ড                \n      ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "breadcrumb-line container-fluid" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
-            _c("ol", { staticClass: "breadcrumb pl-0" }, [
-              _c(
-                "li",
-                {
-                  staticClass: "breadcrumb-item active",
-                  attrs: { "aria-current": "page" }
-                },
-                [
-                  _vm._v(
-                    "\n                                ড্যাশবোর্ড\n                        "
-                  )
-                ]
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-6 breadcrumb-right" })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -71392,7 +71429,14 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "admin",
+    {
+      attrs: {
+        page_header: "Contacts",
+        header_icon: "icon-users",
+        breadcrumbs: _vm.breadcrumbs
+      }
+    },
     [
       _c("h1", { staticClass: "mb-8 font-bold text-3xl" }, [
         _vm._v("Contacts")
@@ -71400,7 +71444,17 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "contact" }, [
         _c("table", { staticClass: "table" }, [
-          _vm._m(0),
+          _c("thead", { staticClass: "thead-dark" }, [
+            _c("tr", [
+              _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+              _vm._v(" "),
+              _c("th", { attrs: { scope: "col" } }, [_vm._v("First Name")]),
+              _vm._v(" "),
+              _c("th", { attrs: { scope: "col" } }, [_vm._v("Last Name")]),
+              _vm._v(" "),
+              _c("th", { attrs: { scope: "col" } }, [_vm._v("Email")])
+            ])
+          ]),
           _vm._v(" "),
           _c(
             "tbody",
@@ -71427,24 +71481,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", { staticClass: "thead-dark" }, [
-      _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("First Name")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Last Name")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Email")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -73416,35 +73453,29 @@ var render = function() {
       _c(
         "ul",
         { staticClass: "pagination", attrs: { role: "navigation" } },
-        [
-          _vm._l(_vm.links, function(link, key) {
-            return [
+        _vm._l(_vm.links, function(link, key) {
+          return _c(
+            "li",
+            {
+              key: key,
+              staticClass: "page-item",
+              class: { active: link.active }
+            },
+            [
               _c(
-                "li",
-                { staticClass: "page-item", class: { active: link.active } },
+                "inertia-link",
+                { staticClass: "page-link", attrs: { href: link.url } },
                 [
-                  _c(
-                    "inertia-link",
-                    {
-                      key: key,
-                      staticClass: "page-link",
-                      attrs: { href: link.url }
-                    },
-                    [
-                      _vm._v(
-                        "\n              " +
-                          _vm._s(link.label) +
-                          " \n            "
-                      )
-                    ]
+                  _vm._v(
+                    "\n            " + _vm._s(link.label) + " \n          "
                   )
-                ],
-                1
+                ]
               )
-            ]
-          })
-        ],
-        2
+            ],
+            1
+          )
+        }),
+        0
       )
     ])
   ])

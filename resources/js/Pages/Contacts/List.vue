@@ -1,5 +1,8 @@
 <template>
-    <div>
+  <admin 
+    page_header="Contacts"
+    header_icon="icon-users"
+    :breadcrumbs="breadcrumbs">
     <h1 class="mb-8 font-bold text-3xl">Contacts</h1>
     <div class="contact">
       <table class="table">
@@ -23,7 +26,7 @@
     </div>
       <!-- {{ contacts.links }} -->
      <pagination :links="contacts.links" />
-  </div>
+  </admin>
 </template>
 <script>
 import Icon from '@/Shared/Icon'
@@ -36,14 +39,22 @@ import throttle from 'lodash/throttle'
 
 export default {
   metaInfo: { title: 'Contacts' },
-  layout: Admin,
+  data() {
+    return {
+      breadcrumbs: [
+        {url: "/contacts", title:"Contacts"},
+        {url: "#", title:"List"}
+      ]
+    }
+  },
   components: {
     Icon,
     Pagination,
     SearchFilter,
+    Admin
   },
   props: {
-    contacts: Object,
+    contacts: Object
   },
 }
 </script>
