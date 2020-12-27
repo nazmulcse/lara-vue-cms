@@ -15,4 +15,9 @@ class ContactController extends Controller
         ];
         return Inertia::render('Contacts/List', $data);
     }
+
+    public function create()
+    {
+        return Inertia::render('Contacts/Create');
+    }
 }

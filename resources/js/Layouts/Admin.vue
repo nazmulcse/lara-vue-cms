@@ -31,7 +31,7 @@
               </div>
               <div class="col-sm-6 breadcrumb-right">
                 <template v-for="(button, key) in buttons">
-                  <inertia-link :key="key" :href="button.url" :class="button.class" class="btn">
+                  <inertia-link :key="key" :href="route(button.url)" :class="button.class" class="btn">
                                 {{ button.title   }} 
                               </inertia-link>
                 </template>

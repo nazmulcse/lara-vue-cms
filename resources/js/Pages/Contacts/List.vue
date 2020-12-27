@@ -66,7 +66,7 @@ export default {
         {url: "#", title:"List"}
       ],
       buttons: [
-        {url: "/contacts", title:"Add Contacts", class: "btn-sm btn-primary"}
+        {url: "contact.create", title:"Add Contacts", class: "btn-sm btn-primary"}
       ]
     }
   },
