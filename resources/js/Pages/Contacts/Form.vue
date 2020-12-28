@@ -39,10 +39,7 @@
               </validation-provider>
             </div>
             <div class="col-sm-4">
-                <validation-provider rules="required" v-slot="{ errors }">
-                    <input v-model="value" name="myinput" type="text" class="is-invalid" />
-                    <div>{{ errors[0] }}</div>
-                </validation-provider>
+                <text-input :rules="{ required: true }" v-model="form.email" label="Email" id="email" class="pr-6 pb-8 w-full lg:w-1/2" />
             </div>
         </div>
         
@@ -57,7 +54,12 @@
 </template>
 
 <script>
+import TextInput from '@/Shared/TextInput'
+
 export default {
+  components: {
+    TextInput
+  },
   data() {
     return {
       foods: [
@@ -67,7 +69,8 @@ export default {
       ],
       form: {
         name: null,
-        food: null
+        food: null,
+        email: "tt"
       }
     };
   },

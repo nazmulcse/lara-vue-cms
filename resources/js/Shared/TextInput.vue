@@ -1,30 +1,41 @@
 <template>
   <div>
-    <label v-if="label" class="form-label" :for="id">{{ label }}:</label>
-    <input :id="id" ref="input" v-bind="$attrs" class="form-input" :class="{ error: error }" :type="type" :value="value" @input="$emit('input', $event.target.value)">
-    <div v-if="error" class="form-error">{{ error }}</div>
-
     <validation-provider
-        name="First Name"
-        :rules="{ required: true, min: 3 }"
+        :name="label"
+        :rules="rules"
         v-slot="validationContext"
         >
-        <b-form-group id="example-input-group-1" label="First Name" label-for="example-input-1">
+        <b-form-group :id=" 'input-group' + id" :label="label" :label-for="id">
             <b-form-input
-            id="example-input-1"
-            name="example-input-1"
-            v-model="form.name"
+            :id="id"
+            v-bind="$attrs"
             :state="getValidationState(validationContext)"
-            aria-describedby="input-1-live-feedback"
+            v-on:input="$emit('input', $event.target.value)"
             ></b-form-input>
 
-            <b-form-invalid-feedback id="input-1-live-feedback">{{ validationContext.errors[0] }}</b-form-invalid-feedback>
+            <b-form-invalid-feedback>{{ validationContext.errors[0] }}</b-form-invalid-feedback>
         </b-form-group>
     </validation-provider>
+    <div v-if="error" class="form-error">{{ error }}</div>
   </div>
 </template>
 
 <script>
+import {
+  ValidationObserver,
+  ValidationProvider,
+  extend,
+  localize
+} from "vee-validate";
+import en from "vee-validate/dist/locale/en.json";
+import * as rules from "vee-validate/dist/rules";
+// Install VeeValidate rules and localization
+Object.keys(rules).forEach(rule => {
+  extend(rule, rules[rule]);
+});
+
+localize("en", en);
+
 export default {
   inheritAttrs: false,
   props: {
@@ -37,6 +48,9 @@ export default {
     type: {
       type: String,
       default: 'text',
+    },
+    rules: {
+      type: Object
     },
     value: String,
     label: String,
@@ -51,6 +65,9 @@ export default {
     },
     setSelectionRange(start, end) {
       this.$refs.input.setSelectionRange(start, end)
+    },
+    getValidationState({ dirty, validated, valid = null }) {
+      return dirty || validated ? valid : null;
     },
   },
 }
