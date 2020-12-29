@@ -8,9 +8,11 @@
         <b-form-group :id=" 'input-group' + id" :label="label" :label-for="id">
             <b-form-input
             :id="id"
+            :type="type"
             v-bind="$attrs"
+            :value="value"
             :state="getValidationState(validationContext)"
-            v-on:input="$emit('input', $event.target.value)"
+            v-on:input="$emit('input', $event)"
             ></b-form-input>
 
             <b-form-invalid-feedback>{{ validationContext.errors[0] }}</b-form-invalid-feedback>

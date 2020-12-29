@@ -3825,18 +3825,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3855,9 +3843,9 @@ __webpack_require__.r(__webpack_exports__);
         text: "Orange"
       }],
       form: {
-        name: null,
-        food: null,
-        email: "tt"
+        name: '785',
+        first_name: 'null',
+        email: 'nazmul.sbpgc@gmail.com'
       }
     };
   },
@@ -5118,6 +5106,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vee_validate_dist_locale_en_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vee-validate/dist/locale/en.json */ "./node_modules/vee-validate/dist/locale/en.json");
 var vee_validate_dist_locale_en_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! vee-validate/dist/locale/en.json */ "./node_modules/vee-validate/dist/locale/en.json", 1);
 /* harmony import */ var vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vee-validate/dist/rules */ "./node_modules/vee-validate/dist/rules.js");
+//
+//
 //
 //
 //
@@ -74704,69 +74694,19 @@ var render = function() {
                         "div",
                         { staticClass: "col-sm-4" },
                         [
-                          _c("validation-provider", {
-                            attrs: { name: "Food", rules: { required: true } },
-                            scopedSlots: _vm._u(
-                              [
-                                {
-                                  key: "default",
-                                  fn: function(validationContext) {
-                                    return [
-                                      _c(
-                                        "b-form-group",
-                                        {
-                                          attrs: {
-                                            id: "example-input-group-2",
-                                            label: "Food",
-                                            "label-for": "example-input-2"
-                                          }
-                                        },
-                                        [
-                                          _c("b-form-select", {
-                                            attrs: {
-                                              id: "example-input-2",
-                                              name: "example-input-2",
-                                              options: _vm.foods,
-                                              state: _vm.getValidationState(
-                                                validationContext
-                                              ),
-                                              "aria-describedby":
-                                                "input-2-live-feedback"
-                                            },
-                                            model: {
-                                              value: _vm.form.food,
-                                              callback: function($$v) {
-                                                _vm.$set(_vm.form, "food", $$v)
-                                              },
-                                              expression: "form.food"
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "b-form-invalid-feedback",
-                                            {
-                                              attrs: {
-                                                id: "input-2-live-feedback"
-                                              }
-                                            },
-                                            [
-                                              _vm._v(
-                                                _vm._s(
-                                                  validationContext.errors[0]
-                                                )
-                                              )
-                                            ]
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ]
-                                  }
-                                }
-                              ],
-                              null,
-                              true
-                            )
+                          _c("text-input", {
+                            attrs: {
+                              rules: { required: true },
+                              label: "First Name",
+                              id: "first_name"
+                            },
+                            model: {
+                              value: _vm.form.first_name,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "first_name", $$v)
+                              },
+                              expression: "form.first_name"
+                            }
                           })
                         ],
                         1
@@ -74777,9 +74717,9 @@ var render = function() {
                         { staticClass: "col-sm-4" },
                         [
                           _c("text-input", {
-                            staticClass: "pr-6 pb-8 w-full lg:w-1/2",
                             attrs: {
-                              rules: { required: true },
+                              type: "email",
+                              rules: { required: true, email: true },
                               label: "Email",
                               id: "email"
                             },
@@ -77099,11 +77039,13 @@ var render = function() {
                         {
                           attrs: {
                             id: _vm.id,
+                            type: _vm.type,
+                            value: _vm.value,
                             state: _vm.getValidationState(validationContext)
                           },
                           on: {
                             input: function($event) {
-                              return _vm.$emit("input", $event.target.value)
+                              return _vm.$emit("input", $event)
                             }
                           }
                         },
