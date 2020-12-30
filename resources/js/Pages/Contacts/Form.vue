@@ -16,10 +16,13 @@
         
         <div class="row">
             <div class="col-sm-4">
-                <select-input :options="districts" :rules="{ required: true }" v-model="form.district_name" label="District" id="district_name" />
+                <textarea-input placeholder="Enter your address" :rules="{ required: true }" v-model="form.address" label="Address" id="address" />
             </div>
             <div class="col-sm-4">
-              
+                <select-input :options="cities" :rules="{ required: true }" v-model="form.city" label="City" id="city" />
+            </div>
+            <div class="col-sm-4">
+                <file-input :rules="{ required: true }" v-model="form.file" label="Photo" id="photo" />
             </div>
         </div>
         <b-button type="submit" variant="primary">Submit</b-button>
@@ -32,15 +35,19 @@
 <script>
 import TextInput from '@/Shared/TextInput'
 import SelectInput from '@/Shared/SelectInput'
+import TextareaInput from '@/Shared/TextareaInput'
+import FileInput from '@/Shared/FileInput'
 
 export default {
   components: {
     TextInput,
-    SelectInput
+    SelectInput,
+    TextareaInput,
+    FileInput
   },
   data() {
     return {
-      districts: [
+      cities: [
         {id: '1', name: 'Lakshmipur'}
       ],
       foods: [
@@ -49,10 +56,11 @@ export default {
         { value: "orange", text: "Orange" }
       ],
       form: {
-        name: '785',
+        address: null,
+        file: null,
         first_name: null,
         last_name: null,
-        district_name: null,
+        city: null,
         email: null
       }
     };

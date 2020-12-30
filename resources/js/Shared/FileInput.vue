@@ -1,20 +1,24 @@
 <template>
   <div>
-    <label v-if="label" class="form-label">{{ label }}:</label>
-    <div class="form-input p-0" :class="{ error: errors.length }">
-      <input ref="file" type="file" :accept="accept" class="hidden" @change="change">
-      <div v-if="!value" class="p-2">
-        <button type="button" class="px-4 py-1 bg-gray-500 hover:bg-gray-700 rounded-sm text-xs font-medium text-white" @click="browse">
-          Browse
-        </button>
-      </div>
-      <div v-else class="flex items-center justify-between p-2">
-        <div class="flex-1 pr-1">{{ value.name }} <span class="text-gray-500 text-xs">({{ filesize(value.size) }})</span></div>
-        <button type="button" class="px-4 py-1 bg-gray-500 hover:bg-gray-700 rounded-sm text-xs font-medium text-white" @click="remove">
-          Remove
-        </button>
-      </div>
-    </div>
+    <validation-provider
+        :name="label"
+        :rules="rules"
+        v-slot="validationContext"
+        >
+        <b-form-group :id=" 'input-group-' + id" :label="label" :label-for="id">
+            <b-form-file
+            :id="id"
+            ref="input"
+            :name="id"
+            v-bind="$attrs"
+            :placeholder="placeholder"
+            :value="value"
+            v-on:input="$emit('input', $event)"
+            :state="getValidationState(validationContext)"
+            ></b-form-file>
+            <b-form-invalid-feedback>{{ validationContext.errors[0] }}</b-form-invalid-feedback>
+        </b-form-group>
+    </validation-provider>
     <div v-if="errors.length" class="form-error">{{ errors[0] }}</div>
   </div>
 </template>
@@ -22,6 +26,13 @@
 <script>
 export default {
   props: {
+    placeholder: {
+      type: String,
+      default: 'Choose file..'
+    },
+    rules: {
+      type: Object
+    },
     value: File,
     label: String,
     accept: String,
@@ -38,6 +49,9 @@ export default {
     },
   },
   methods: {
+    getValidationState({ dirty, validated, valid = null }) {
+      return dirty || validated ? valid : null;
+    },
     filesize(size) {
       var i = Math.floor(Math.log(size) / Math.log(1024))
       return (size / Math.pow(1024, i) ).toFixed(2) * 1 + ' ' + ['B', 'kB', 'MB', 'GB', 'TB'][i]
