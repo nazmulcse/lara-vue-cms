@@ -3782,6 +3782,25 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_TextInput__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Shared/TextInput */ "./resources/js/Shared/TextInput.vue");
+/* harmony import */ var _Shared_SelectInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Shared/SelectInput */ "./resources/js/Shared/SelectInput.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3809,12 +3828,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    TextInput: _Shared_TextInput__WEBPACK_IMPORTED_MODULE_0__["default"]
+    TextInput: _Shared_TextInput__WEBPACK_IMPORTED_MODULE_0__["default"],
+    SelectInput: _Shared_SelectInput__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
+      districts: [{
+        id: '1',
+        name: 'Lakshmipur'
+      }],
       foods: [{
         value: null,
         text: "Choose..."
@@ -3829,18 +3854,12 @@ __webpack_require__.r(__webpack_exports__);
         name: '785',
         first_name: null,
         last_name: null,
-        email: 'nazmul.sbpgc@gmail.com'
+        district_name: null,
+        email: null
       }
     };
   },
   methods: {
-    getValidationState: function getValidationState(_ref) {
-      var dirty = _ref.dirty,
-          validated = _ref.validated,
-          _ref$valid = _ref.valid,
-          valid = _ref$valid === void 0 ? null : _ref$valid;
-      return dirty || validated ? valid : null;
-    },
     resetForm: function resetForm() {
       var _this = this;
 
@@ -3851,6 +3870,13 @@ __webpack_require__.r(__webpack_exports__);
       this.$nextTick(function () {
         _this.$refs.observer.reset();
       });
+    },
+    getValidationState: function getValidationState(_ref) {
+      var dirty = _ref.dirty,
+          validated = _ref.validated,
+          _ref$valid = _ref.valid,
+          valid = _ref$valid === void 0 ? null : _ref$valid;
+      return dirty || validated ? valid : null;
     },
     onSubmit: function onSubmit() {
       alert("Form submitted!");
@@ -5071,6 +5097,102 @@ __webpack_require__.r(__webpack_exports__);
     maxWidth: {
       type: Number,
       "default": 300
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Shared/SelectInput.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Shared/SelectInput.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    options: {
+      type: [Object, Array],
+      "default": function _default() {
+        return {};
+      }
+    },
+    value_field: {
+      type: String,
+      "default": 'id'
+    },
+    text_field: {
+      type: String,
+      "default": 'name'
+    },
+    placeholder: {
+      type: String,
+      "default": 'Select'
+    },
+    id: {
+      type: String,
+      "default": function _default() {
+        return "select-input-".concat(this._uid);
+      }
+    },
+    rules: {
+      type: Object
+    },
+    value: [String, Number, Boolean],
+    label: String,
+    error: String
+  },
+  watch: {
+    selected: function selected(_selected) {
+      this.$emit('input', _selected);
+    }
+  },
+  methods: {
+    getValidationState: function getValidationState(_ref) {
+      var dirty = _ref.dirty,
+          validated = _ref.validated,
+          _ref$valid = _ref.valid,
+          valid = _ref$valid === void 0 ? null : _ref$valid;
+      return dirty || validated ? valid : null;
+    },
+    focus: function focus() {
+      this.$refs.input.focus();
+    },
+    select: function select() {
+      this.$refs.input.select();
     }
   }
 });
@@ -74668,6 +74790,103 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        { staticClass: "col-sm-4" },
+                        [
+                          _c("select-input", {
+                            attrs: {
+                              options: _vm.districts,
+                              rules: { required: true },
+                              label: "District",
+                              id: "district_name"
+                            },
+                            model: {
+                              value: _vm.form.district_name,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "district_name", $$v)
+                              },
+                              expression: "form.district_name"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-sm-4" },
+                        [
+                          _c("validation-provider", {
+                            attrs: { name: "Food", rules: { required: true } },
+                            scopedSlots: _vm._u(
+                              [
+                                {
+                                  key: "default",
+                                  fn: function(validationContext) {
+                                    return [
+                                      _c(
+                                        "b-form-group",
+                                        {
+                                          attrs: {
+                                            id: "example-input-group-2",
+                                            label: "Food",
+                                            "label-for": "example-input-2"
+                                          }
+                                        },
+                                        [
+                                          _c("b-form-select", {
+                                            attrs: {
+                                              id: "example-input-2",
+                                              name: "example-input-2",
+                                              options: _vm.foods,
+                                              state: _vm.getValidationState(
+                                                validationContext
+                                              ),
+                                              "aria-describedby":
+                                                "input-2-live-feedback"
+                                            },
+                                            model: {
+                                              value: _vm.form.food,
+                                              callback: function($$v) {
+                                                _vm.$set(_vm.form, "food", $$v)
+                                              },
+                                              expression: "form.food"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "b-form-invalid-feedback",
+                                            {
+                                              attrs: {
+                                                id: "input-2-live-feedback"
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  validationContext.errors[0]
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ]
+                                  }
+                                }
+                              ],
+                              null,
+                              true
+                            )
+                          })
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
                     _c(
                       "b-button",
                       { attrs: { type: "submit", variant: "primary" } },
@@ -76922,6 +77141,107 @@ var render = function() {
       [_vm._v("Reset")]
     )
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Shared/SelectInput.vue?vue&type=template&id=de51c2fc&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Shared/SelectInput.vue?vue&type=template&id=de51c2fc& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("validation-provider", {
+        attrs: { name: _vm.label, rules: _vm.rules },
+        scopedSlots: _vm._u([
+          {
+            key: "default",
+            fn: function(validationContext) {
+              return [
+                _c(
+                  "b-form-group",
+                  {
+                    attrs: {
+                      id: "input-group-" + _vm.id,
+                      label: _vm.label,
+                      "label-for": _vm.id
+                    }
+                  },
+                  [
+                    _c(
+                      "b-form-select",
+                      _vm._b(
+                        {
+                          ref: "input",
+                          attrs: {
+                            id: _vm.id,
+                            name: _vm.id,
+                            "value-field": _vm.value_field,
+                            "text-field": _vm.text_field,
+                            options: _vm.options,
+                            value: _vm.value,
+                            state: _vm.getValidationState(validationContext)
+                          },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "first",
+                                fn: function() {
+                                  return [
+                                    _c(
+                                      "b-form-select-option",
+                                      { attrs: { value: null } },
+                                      [_vm._v(_vm._s(_vm.placeholder))]
+                                    )
+                                  ]
+                                },
+                                proxy: true
+                              }
+                            ],
+                            null,
+                            true
+                          )
+                        },
+                        "b-form-select",
+                        _vm.$attrs,
+                        false
+                      )
+                    ),
+                    _vm._v(" "),
+                    _c("b-form-invalid-feedback", [
+                      _vm._v(_vm._s(validationContext.errors[0]))
+                    ])
+                  ],
+                  1
+                )
+              ]
+            }
+          }
+        ])
+      }),
+      _vm._v(" "),
+      _vm.error
+        ? _c("div", { staticClass: "form-error" }, [_vm._v(_vm._s(_vm.error))])
+        : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -94456,6 +94776,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchFilter_vue_vue_type_template_id_4adb669c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchFilter_vue_vue_type_template_id_4adb669c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Shared/SelectInput.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/Shared/SelectInput.vue ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SelectInput_vue_vue_type_template_id_de51c2fc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SelectInput.vue?vue&type=template&id=de51c2fc& */ "./resources/js/Shared/SelectInput.vue?vue&type=template&id=de51c2fc&");
+/* harmony import */ var _SelectInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SelectInput.vue?vue&type=script&lang=js& */ "./resources/js/Shared/SelectInput.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _SelectInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SelectInput_vue_vue_type_template_id_de51c2fc___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SelectInput_vue_vue_type_template_id_de51c2fc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Shared/SelectInput.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Shared/SelectInput.vue?vue&type=script&lang=js&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/Shared/SelectInput.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./SelectInput.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Shared/SelectInput.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Shared/SelectInput.vue?vue&type=template&id=de51c2fc&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/Shared/SelectInput.vue?vue&type=template&id=de51c2fc& ***!
+  \****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectInput_vue_vue_type_template_id_de51c2fc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./SelectInput.vue?vue&type=template&id=de51c2fc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Shared/SelectInput.vue?vue&type=template&id=de51c2fc&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectInput_vue_vue_type_template_id_de51c2fc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectInput_vue_vue_type_template_id_de51c2fc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
