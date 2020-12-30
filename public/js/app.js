@@ -3808,23 +3808,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3844,7 +3827,8 @@ __webpack_require__.r(__webpack_exports__);
       }],
       form: {
         name: '785',
-        first_name: 'null',
+        first_name: null,
+        last_name: null,
         email: 'nazmul.sbpgc@gmail.com'
       }
     };
@@ -74620,80 +74604,6 @@ var render = function() {
                         "div",
                         { staticClass: "col-sm-4" },
                         [
-                          _c("validation-provider", {
-                            attrs: {
-                              name: "First Name",
-                              rules: { required: true, min: 3 }
-                            },
-                            scopedSlots: _vm._u(
-                              [
-                                {
-                                  key: "default",
-                                  fn: function(validationContext) {
-                                    return [
-                                      _c(
-                                        "b-form-group",
-                                        {
-                                          attrs: {
-                                            id: "example-input-group-1",
-                                            label: "First Name",
-                                            "label-for": "example-input-1"
-                                          }
-                                        },
-                                        [
-                                          _c("b-form-input", {
-                                            attrs: {
-                                              id: "example-input-1",
-                                              name: "example-input-1",
-                                              state: _vm.getValidationState(
-                                                validationContext
-                                              ),
-                                              "aria-describedby":
-                                                "input-1-live-feedback"
-                                            },
-                                            model: {
-                                              value: _vm.form.name,
-                                              callback: function($$v) {
-                                                _vm.$set(_vm.form, "name", $$v)
-                                              },
-                                              expression: "form.name"
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "b-form-invalid-feedback",
-                                            {
-                                              attrs: {
-                                                id: "input-1-live-feedback"
-                                              }
-                                            },
-                                            [
-                                              _vm._v(
-                                                _vm._s(
-                                                  validationContext.errors[0]
-                                                )
-                                              )
-                                            ]
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ]
-                                  }
-                                }
-                              ],
-                              null,
-                              true
-                            )
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col-sm-4" },
-                        [
                           _c("text-input", {
                             attrs: {
                               rules: { required: true },
@@ -74706,6 +74616,28 @@ var render = function() {
                                 _vm.$set(_vm.form, "first_name", $$v)
                               },
                               expression: "form.first_name"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-sm-4" },
+                        [
+                          _c("text-input", {
+                            attrs: {
+                              rules: { required: true },
+                              label: "Last Name",
+                              id: "last_name"
+                            },
+                            model: {
+                              value: _vm.form.last_name,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "last_name", $$v)
+                              },
+                              expression: "form.last_name"
                             }
                           })
                         ],

@@ -4,27 +4,10 @@
       <b-form @submit.stop.prevent="handleSubmit(onSubmit)">
         <div class="row">
             <div class="col-sm-4">
-                <validation-provider
-                    name="First Name"
-                    :rules="{ required: true, min: 3 }"
-                    v-slot="validationContext"
-                    >
-                    <b-form-group id="example-input-group-1" label="First Name" label-for="example-input-1">
-                        <b-form-input
-                        id="example-input-1"
-                        name="example-input-1"
-                        v-model="form.name"
-                        :state="getValidationState(validationContext)"
-                        aria-describedby="input-1-live-feedback"
-                        ></b-form-input>
-
-                        <b-form-invalid-feedback id="input-1-live-feedback">{{ validationContext.errors[0] }}</b-form-invalid-feedback>
-                    </b-form-group>
-                </validation-provider>
+                <text-input :rules="{ required: true }" v-model="form.first_name" label="First Name" id="first_name" />
             </div>
             <div class="col-sm-4">
-                <text-input :rules="{ required: true }" v-model="form.first_name" label="First Name" id="first_name" />
-
+                <text-input :rules="{ required: true }" v-model="form.last_name" label="Last Name" id="last_name" />
             </div>
             <div class="col-sm-4">
                 <text-input type="email" :rules="{ required: true, email: true }" v-model="form.email" label="Email" id="email" />
@@ -57,7 +40,8 @@ export default {
       ],
       form: {
         name: '785',
-        first_name: 'null',
+        first_name: null,
+        last_name: null,
         email: 'nazmul.sbpgc@gmail.com'
       }
     };
