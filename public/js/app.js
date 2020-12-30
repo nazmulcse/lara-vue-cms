@@ -3814,19 +3814,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -5112,6 +5099,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -74814,77 +74802,7 @@ var render = function() {
                         1
                       ),
                       _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col-sm-4" },
-                        [
-                          _c("validation-provider", {
-                            attrs: { name: "Food", rules: { required: true } },
-                            scopedSlots: _vm._u(
-                              [
-                                {
-                                  key: "default",
-                                  fn: function(validationContext) {
-                                    return [
-                                      _c(
-                                        "b-form-group",
-                                        {
-                                          attrs: {
-                                            id: "example-input-group-2",
-                                            label: "Food",
-                                            "label-for": "example-input-2"
-                                          }
-                                        },
-                                        [
-                                          _c("b-form-select", {
-                                            attrs: {
-                                              id: "example-input-2",
-                                              name: "example-input-2",
-                                              options: _vm.foods,
-                                              state: _vm.getValidationState(
-                                                validationContext
-                                              ),
-                                              "aria-describedby":
-                                                "input-2-live-feedback"
-                                            },
-                                            model: {
-                                              value: _vm.form.food,
-                                              callback: function($$v) {
-                                                _vm.$set(_vm.form, "food", $$v)
-                                              },
-                                              expression: "form.food"
-                                            }
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "b-form-invalid-feedback",
-                                            {
-                                              attrs: {
-                                                id: "input-2-live-feedback"
-                                              }
-                                            },
-                                            [
-                                              _vm._v(
-                                                _vm._s(
-                                                  validationContext.errors[0]
-                                                )
-                                              )
-                                            ]
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ]
-                                  }
-                                }
-                              ],
-                              null,
-                              true
-                            )
-                          })
-                        ],
-                        1
-                      )
+                      _c("div", { staticClass: "col-sm-4" })
                     ]),
                     _vm._v(" "),
                     _c(
@@ -77197,6 +77115,11 @@ var render = function() {
                             options: _vm.options,
                             value: _vm.value,
                             state: _vm.getValidationState(validationContext)
+                          },
+                          on: {
+                            input: function($event) {
+                              return _vm.$emit("input", $event)
+                            }
                           },
                           scopedSlots: _vm._u(
                             [

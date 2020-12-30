@@ -15,6 +15,7 @@
             :options="options"
             v-bind="$attrs"
             :value="value"
+            v-on:input="$emit('input', $event)"
             :state="getValidationState(validationContext)"
             >
             <template #first>
