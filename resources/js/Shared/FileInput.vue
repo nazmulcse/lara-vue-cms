@@ -26,6 +26,12 @@
 <script>
 export default {
   props: {
+    id: {
+      type: String,
+      default() {
+        return `text-input-${this._uid}`
+      },
+    },
     placeholder: {
       type: String,
       default: 'Choose file..'

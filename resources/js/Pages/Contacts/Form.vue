@@ -50,11 +50,6 @@ export default {
       cities: [
         {id: '1', name: 'Lakshmipur'}
       ],
-      foods: [
-        { value: null, text: "Choose..." },
-        { value: "apple", text: "Apple" },
-        { value: "orange", text: "Orange" }
-      ],
       form: {
         address: null,
         file: null,
@@ -80,7 +75,11 @@ export default {
       return dirty || validated ? valid : null;
     },
     onSubmit() {
-      alert("Form submitted!");
+      console.log($page);
+      /* this.$inertia.post(this.route('contact.store'), this.form, {
+        onStart: () => this.sending = true,
+        onFinish: () => this.sending = false,
+      }) */
     }
   }
 };

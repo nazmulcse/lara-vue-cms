@@ -24,6 +24,7 @@ Route::get('/', [DashboardController::class, 'index'])
 Route::prefix('admin')->group(function () {
   Route::get('/contacts', [ContactController::class, 'index'])->name('contact.list');
   Route::get('/contacts/create', [ContactController::class, 'create'])->name('contact.create');
+  Route::post('/contacts', [ContactController::class, 'store'])->name('contact.store');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

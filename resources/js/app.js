@@ -39,13 +39,16 @@ Vue.use(BootstrapVue)
 
 InertiaProgress.init()
 
-const el = document.getElementById('app')
+let app = document.getElementById('app')
 
 new Vue({
+  metaInfo: {
+    titleTemplate: (title) => title ? `${title} - LaraVueCMS` : 'LaraVueCMS'
+  },
   render: h => h(InertiaApp, {
     props: {
-      initialPage: JSON.parse(el.dataset.page),
-      resolveComponent: name => require(`./Pages/${name}`).default,
+      initialPage: JSON.parse(app.dataset.page),
+      resolveComponent: name => import(`@/Pages/${name}`).then(module => module.default),
     },
   }),
-}).$mount(el)
+}).$mount(app)

@@ -39,6 +39,7 @@
           </div>
         </div>
         <div class="page-content p-3">
+          <flash-messages />
           <slot />
         </div>
       </main>
