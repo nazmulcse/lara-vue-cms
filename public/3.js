@@ -388,14 +388,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -458,7 +450,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".sidebar-dark[data-v-c09e41de] {\n  background-color: #3f474e;\n}\r\n", ""]);
+exports.push([module.i, ".sidebar-dark[data-v-c09e41de] {\n  background-color: #3f474e;\n}\n", ""]);
 
 // exports
 
@@ -819,7 +811,7 @@ var staticRenderFns = [
                 staticClass: "active btn btn-outline-light btn-sm",
                 attrs: { href: "https://mislgsp.gov.bd/bn//admin" }
               },
-              [_vm._v("\r\n               বাংলা\r\n               ")]
+              [_vm._v("\n               বাংলা\n               ")]
             ),
             _vm._v(" "),
             _c(
@@ -828,7 +820,7 @@ var staticRenderFns = [
                 staticClass: " btn btn-outline-light btn-sm",
                 attrs: { href: "https://mislgsp.gov.bd/en//admin" }
               },
-              [_vm._v("\r\n               English\r\n               ")]
+              [_vm._v("\n               English\n               ")]
             )
           ]
         )
@@ -1100,160 +1092,67 @@ var render = function() {
       ? _c(
           "div",
           {
-            staticClass:
-              "mb-8 flex items-center justify-between bg-green-500 rounded max-w-3xl"
+            staticClass: "alert alert-success alert-styled-left mb-3",
+            attrs: { role: "alert" }
           },
           [
-            _c("div", { staticClass: "flex items-center" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "ml-4 mr-2 flex-shrink-0 w-4 h-4 fill-white",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    viewBox: "0 0 20 20"
-                  }
-                },
-                [
-                  _c("polygon", {
-                    attrs: { points: "0 11 2 9 7 14 18 3 20 5 7 18" }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "py-4 text-white text-sm font-medium" },
-                [_vm._v(_vm._s(_vm.$page.props.flash.success))]
-              )
-            ]),
-            _vm._v(" "),
             _c(
               "button",
               {
-                staticClass: "group mr-2 p-2",
-                attrs: { type: "button" },
+                staticClass: "close",
+                attrs: {
+                  type: "button",
+                  "data-dismiss": "alert",
+                  "aria-label": "Close"
+                },
                 on: {
                   click: function($event) {
                     _vm.show = false
                   }
                 }
               },
-              [
-                _c(
-                  "svg",
-                  {
-                    staticClass:
-                      "block w-2 h-2 fill-green-800 group-hover:fill-white",
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      width: "235.908",
-                      height: "235.908",
-                      viewBox: "278.046 126.846 235.908 235.908"
-                    }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M506.784 134.017c-9.56-9.56-25.06-9.56-34.62 0L396 210.18l-76.164-76.164c-9.56-9.56-25.06-9.56-34.62 0-9.56 9.56-9.56 25.06 0 34.62L361.38 244.8l-76.164 76.165c-9.56 9.56-9.56 25.06 0 34.62 9.56 9.56 25.06 9.56 34.62 0L396 279.42l76.164 76.165c9.56 9.56 25.06 9.56 34.62 0 9.56-9.56 9.56-25.06 0-34.62L430.62 244.8l76.164-76.163c9.56-9.56 9.56-25.06 0-34.62z"
-                      }
-                    })
-                  ]
-                )
-              ]
+              [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+            ),
+            _vm._v(
+              "\n          " + _vm._s(_vm.$page.props.flash.success) + "\n  "
             )
           ]
         )
       : _vm._e(),
     _vm._v(" "),
-    (_vm.$page.flash.error || Object.keys(_vm.$page.errors).length > 0) &&
-    _vm.show
+    _vm.$page.props.flash.error && _vm.show
       ? _c(
           "div",
           {
-            staticClass:
-              "mb-8 flex items-center justify-between bg-red-500 rounded max-w-3xl"
+            staticClass: "alert alert-danger alert-styled-left mb-3",
+            attrs: { role: "alert" }
           },
           [
-            _c("div", { staticClass: "flex items-center" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "ml-4 mr-2 flex-shrink-0 w-4 h-4 fill-white",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    viewBox: "0 0 20 20"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm1.41-1.41A8 8 0 1 0 15.66 4.34 8 8 0 0 0 4.34 15.66zm9.9-8.49L11.41 10l2.83 2.83-1.41 1.41L10 11.41l-2.83 2.83-1.41-1.41L8.59 10 5.76 7.17l1.41-1.41L10 8.59l2.83-2.83 1.41 1.41z"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _vm.$page.flash.error
-                ? _c(
-                    "div",
-                    { staticClass: "py-4 text-white text-sm font-medium" },
-                    [_vm._v(_vm._s(_vm.$page.flash.error))]
-                  )
-                : _c(
-                    "div",
-                    { staticClass: "py-4 text-white text-sm font-medium" },
-                    [
-                      Object.keys(_vm.$page.errors).length === 1
-                        ? _c("span", [_vm._v("There is one form error.")])
-                        : _c("span", [
-                            _vm._v(
-                              "There are " +
-                                _vm._s(Object.keys(_vm.$page.errors).length) +
-                                " form errors."
-                            )
-                          ])
-                    ]
-                  )
-            ]),
-            _vm._v(" "),
             _c(
               "button",
               {
-                staticClass: "group mr-2 p-2",
-                attrs: { type: "button" },
+                staticClass: "close",
+                attrs: {
+                  type: "button",
+                  "data-dismiss": "alert",
+                  "aria-label": "Close"
+                },
                 on: {
                   click: function($event) {
                     _vm.show = false
                   }
                 }
               },
-              [
-                _c(
-                  "svg",
-                  {
-                    staticClass:
-                      "block w-2 h-2 fill-red-800 group-hover:fill-white",
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      width: "235.908",
-                      height: "235.908",
-                      viewBox: "278.046 126.846 235.908 235.908"
-                    }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M506.784 134.017c-9.56-9.56-25.06-9.56-34.62 0L396 210.18l-76.164-76.164c-9.56-9.56-25.06-9.56-34.62 0-9.56 9.56-9.56 25.06 0 34.62L361.38 244.8l-76.164 76.165c-9.56 9.56-9.56 25.06 0 34.62 9.56 9.56 25.06 9.56 34.62 0L396 279.42l76.164 76.165c9.56 9.56 25.06 9.56 34.62 0 9.56-9.56 9.56-25.06 0-34.62L430.62 244.8l76.164-76.163c9.56-9.56 9.56-25.06 0-34.62z"
-                      }
-                    })
-                  ]
-                )
-              ]
-            )
+              [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+            ),
+            _vm._v(" "),
+            _c("ul", { staticClass: "mb-0" }, [
+              _vm._v(
+                "\n          " +
+                  _vm._s(_vm.$page.props.flash.error) +
+                  "\n      "
+              )
+            ])
           ]
         )
       : _vm._e()

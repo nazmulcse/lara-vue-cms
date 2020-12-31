@@ -4,7 +4,8 @@
       <b-form @submit.stop.prevent="handleSubmit(onSubmit)">
         <div class="row">
             <div class="col-sm-4">
-                <text-input :rules="{ required: true }" v-model="form.first_name" label="First Name" id="first_name" />
+                <text-input :rules="{ required: false }"  v-model="form.first_name" label="First Name" id="first_name" />
+            <div v-if="errors.first_name">{{ errors.first_name }}</div>
             </div>
             <div class="col-sm-4">
                 <text-input :rules="{ required: true }" v-model="form.last_name" label="Last Name" id="last_name" />
@@ -45,6 +46,9 @@ export default {
     TextareaInput,
     FileInput
   },
+  props: {
+    errors: Object,
+  },
   data() {
     return {
       cities: [
@@ -75,11 +79,11 @@ export default {
       return dirty || validated ? valid : null;
     },
     onSubmit() {
-      console.log($page);
-      /* this.$inertia.post(this.route('contact.store'), this.form, {
+      // console.log(this.$page.props);
+      this.$inertia.post(this.route('contact.store'), this.form, {
         onStart: () => this.sending = true,
         onFinish: () => this.sending = false,
-      }) */
+      })
     }
   }
 };

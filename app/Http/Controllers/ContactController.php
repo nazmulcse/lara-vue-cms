@@ -13,7 +13,7 @@ class ContactController extends Controller
     public function index()
     {
         $data = [
-            'contacts' => Contact::paginate(10)
+            'contacts' => Contact::orderBy('created_at', 'desc')->paginate(10)
         ];
         return Inertia::render('Contacts/List', $data);
     }

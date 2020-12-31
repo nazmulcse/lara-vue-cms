@@ -47,6 +47,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -57,6 +58,9 @@ __webpack_require__.r(__webpack_exports__);
     SelectInput: _Shared_SelectInput__WEBPACK_IMPORTED_MODULE_1__["default"],
     TextareaInput: _Shared_TextareaInput__WEBPACK_IMPORTED_MODULE_2__["default"],
     FileInput: _Shared_FileInput__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  props: {
+    errors: Object
   },
   data: function data() {
     return {
@@ -94,11 +98,17 @@ __webpack_require__.r(__webpack_exports__);
       return dirty || validated ? valid : null;
     },
     onSubmit: function onSubmit() {
-      console.log($page);
-      /* this.$inertia.post(this.route('contact.store'), this.form, {
-        onStart: () => this.sending = true,
-        onFinish: () => this.sending = false,
-      }) */
+      var _this2 = this;
+
+      // console.log(this.$page.props);
+      this.$inertia.post(this.route('contact.store'), this.form, {
+        onStart: function onStart() {
+          return _this2.sending = true;
+        },
+        onFinish: function onFinish() {
+          return _this2.sending = false;
+        }
+      });
     }
   }
 });
@@ -504,7 +514,7 @@ var render = function() {
                         [
                           _c("text-input", {
                             attrs: {
-                              rules: { required: true },
+                              rules: { required: false },
                               label: "First Name",
                               id: "first_name"
                             },
@@ -515,7 +525,11 @@ var render = function() {
                               },
                               expression: "form.first_name"
                             }
-                          })
+                          }),
+                          _vm._v(" "),
+                          _vm.errors.first_name
+                            ? _c("div", [_vm._v(_vm._s(_vm.errors.first_name))])
+                            : _vm._e()
                         ],
                         1
                       ),
