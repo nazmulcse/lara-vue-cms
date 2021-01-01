@@ -48,11 +48,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    console.log(this.errors);
+  },
   components: {
     TextInput: _Shared_TextInput__WEBPACK_IMPORTED_MODULE_0__["default"],
     SelectInput: _Shared_SelectInput__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -341,6 +347,7 @@ var vee_validate_dist_locale_en_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*
 //
 //
 //
+//
 
 
  // Install VeeValidate rules and localization
@@ -515,6 +522,7 @@ var render = function() {
                           _c("text-input", {
                             attrs: {
                               rules: { required: false },
+                              error: _vm.$page.props.errors.first_name,
                               label: "First Name",
                               id: "first_name"
                             },
@@ -525,11 +533,7 @@ var render = function() {
                               },
                               expression: "form.first_name"
                             }
-                          }),
-                          _vm._v(" "),
-                          _vm.errors.first_name
-                            ? _c("div", [_vm._v(_vm._s(_vm.errors.first_name))])
-                            : _vm._e()
+                          })
                         ],
                         1
                       ),
@@ -540,7 +544,8 @@ var render = function() {
                         [
                           _c("text-input", {
                             attrs: {
-                              rules: { required: true },
+                              rules: { required: false },
+                              error: _vm.$page.props.errors.last_name,
                               label: "Last Name",
                               id: "last_name"
                             },
@@ -563,7 +568,7 @@ var render = function() {
                           _c("text-input", {
                             attrs: {
                               type: "email",
-                              rules: { required: true, email: true },
+                              rules: { required: false, email: true },
                               label: "Email",
                               id: "email"
                             },
@@ -588,7 +593,7 @@ var render = function() {
                           _c("textarea-input", {
                             attrs: {
                               placeholder: "Enter your address",
-                              rules: { required: true },
+                              rules: { required: false },
                               label: "Address",
                               id: "address"
                             },
@@ -611,7 +616,7 @@ var render = function() {
                           _c("select-input", {
                             attrs: {
                               options: _vm.cities,
-                              rules: { required: true },
+                              rules: { required: false },
                               label: "City",
                               id: "city"
                             },
@@ -633,7 +638,7 @@ var render = function() {
                         [
                           _c("file-input", {
                             attrs: {
-                              rules: { required: true },
+                              rules: { required: false },
                               label: "Photo",
                               id: "photo"
                             },
@@ -919,6 +924,7 @@ var render = function() {
                       "b-form-input",
                       _vm._b(
                         {
+                          class: { "is-invalid": _vm.error },
                           attrs: {
                             id: _vm.id,
                             type: _vm.type,
@@ -939,7 +945,9 @@ var render = function() {
                     _vm._v(" "),
                     _c("b-form-invalid-feedback", [
                       _vm._v(_vm._s(validationContext.errors[0]))
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c("b-form-invalid-feedback", [_vm._v(_vm._s(_vm.error))])
                   ],
                   1
                 )
@@ -947,11 +955,7 @@ var render = function() {
             }
           }
         ])
-      }),
-      _vm._v(" "),
-      _vm.error
-        ? _c("div", { staticClass: "form-error" }, [_vm._v(_vm._s(_vm.error))])
-        : _vm._e()
+      })
     ],
     1
   )

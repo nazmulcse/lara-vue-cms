@@ -4,26 +4,29 @@
       <b-form @submit.stop.prevent="handleSubmit(onSubmit)">
         <div class="row">
             <div class="col-sm-4">
-                <text-input :rules="{ required: false }"  v-model="form.first_name" label="First Name" id="first_name" />
-            <div v-if="errors.first_name">{{ errors.first_name }}</div>
+                <text-input :rules="{ required: false }" :error="$page.props.errors.first_name"  v-model="form.first_name" label="First Name" id="first_name" />
+            </div>
+           <!--  <div class="col-sm-4">
+                <div class="invalid-feedback test" v-if="$page.props.errors.first_name">{{ $page.props.errors.first_name }}</div>
+
+            </div> -->
+            <div class="col-sm-4">
+                <text-input :rules="{ required: false }" :error="$page.props.errors.last_name" v-model="form.last_name" label="Last Name" id="last_name" />
             </div>
             <div class="col-sm-4">
-                <text-input :rules="{ required: true }" v-model="form.last_name" label="Last Name" id="last_name" />
-            </div>
-            <div class="col-sm-4">
-                <text-input type="email" :rules="{ required: true, email: true }" v-model="form.email" label="Email" id="email" />
+                <text-input type="email" :rules="{ required: false, email: true }" v-model="form.email" label="Email" id="email" />
             </div>
         </div>
         
         <div class="row">
             <div class="col-sm-4">
-                <textarea-input placeholder="Enter your address" :rules="{ required: true }" v-model="form.address" label="Address" id="address" />
+                <textarea-input placeholder="Enter your address" :rules="{ required: false }" v-model="form.address" label="Address" id="address" />
             </div>
             <div class="col-sm-4">
-                <select-input :options="cities" :rules="{ required: true }" v-model="form.city" label="City" id="city" />
+                <select-input :options="cities" :rules="{ required: false }" v-model="form.city" label="City" id="city" />
             </div>
             <div class="col-sm-4">
-                <file-input :rules="{ required: true }" v-model="form.file" label="Photo" id="photo" />
+                <file-input :rules="{ required: false }" v-model="form.file" label="Photo" id="photo" />
             </div>
         </div>
         <b-button type="submit" variant="primary">Submit</b-button>
@@ -40,6 +43,9 @@ import TextareaInput from '@/Shared/TextareaInput'
 import FileInput from '@/Shared/FileInput'
 
 export default {
+  created() {
+    console.log(this.errors);
+  },
   components: {
     TextInput,
     SelectInput,

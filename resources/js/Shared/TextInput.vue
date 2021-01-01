@@ -8,6 +8,7 @@
         <b-form-group :id=" 'input-group' + id" :label="label" :label-for="id">
             <b-form-input
             :id="id"
+            :class="{ 'is-invalid' : error }"
             :type="type"
             v-bind="$attrs"
             :value="value"
@@ -16,9 +17,9 @@
             ></b-form-input>
 
             <b-form-invalid-feedback>{{ validationContext.errors[0] }}</b-form-invalid-feedback>
+            <b-form-invalid-feedback>{{ error }}</b-form-invalid-feedback>
         </b-form-group>
     </validation-provider>
-    <div v-if="error" class="form-error">{{ error }}</div>
   </div>
 </template>
 
