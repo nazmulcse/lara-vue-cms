@@ -69,6 +69,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -219,8 +220,8 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "contact" }, [
-        _c("table", { staticClass: "table" }, [
-          _c("thead", { staticClass: "thead-dark" }, [
+        _c("table", { staticClass: "table table-hover table-striped mb-0" }, [
+          _c("thead", { staticClass: "bg-secondary text-white" }, [
             _c("tr", [
               _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
               _vm._v(" "),
@@ -263,9 +264,22 @@ var render = function() {
                             }
                           },
                           [
-                            _c("b-dropdown-item", { attrs: { href: "#" } }, [
-                              _c("em", [_vm._v("Edit")])
-                            ]),
+                            _c(
+                              "inertia-link",
+                              {
+                                staticClass: "dropdown-item",
+                                attrs: {
+                                  role: "menuitem",
+                                  href: _vm.route("contact.edit", contact.id)
+                                }
+                              },
+                              [
+                                _c("i", { staticClass: "icon-pencil7" }),
+                                _vm._v(
+                                  "\n                      Edit\n                  "
+                                )
+                              ]
+                            ),
                             _vm._v(" "),
                             _c("b-dropdown-divider"),
                             _vm._v(" "),

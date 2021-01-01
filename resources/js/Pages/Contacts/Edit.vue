@@ -1,6 +1,6 @@
 <template>
   <admin 
-    page_header="Contacts"
+    page_header="Edit Contacts"
     header_icon="icon-users"
     :buttons="buttons"
     :breadcrumbs="breadcrumbs">
@@ -27,9 +27,10 @@ export default {
     return {
       breadcrumbs: [
         {url: "/contacts", title:"Contacts"},
-        {url: "#", title:"List"}
+        {url: "#", title:"Edit"}
       ],
       buttons: [
+        {url: "contact.list", title:"Contacts List", class: "btn-sm btn-outline-primary mr-2"},
         {url: "contact.create", title:"Add Contacts", class: "btn-sm btn-primary"}
       ]
     }
@@ -42,8 +43,7 @@ export default {
     Form
   },
   props: {
-    contact: Object,
-    default: null,
+    contact: Object
   },
 }
 </script>

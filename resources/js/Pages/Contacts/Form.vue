@@ -20,7 +20,7 @@
         
         <div class="row">
             <div class="col-sm-4">
-                <textarea-input placeholder="Enter your address" :rules="{ required: false }" v-model="form.address" label="Address" id="address" />
+                <textarea-input placeholder="Enter your address" :rules="{ required: false }" :error="$page.props.errors.address" v-model="form.address" label="Address" id="address" />
             </div>
             <div class="col-sm-4">
                 <select-input :options="cities" :rules="{ required: false }" v-model="form.city" label="City" id="city" />
@@ -43,9 +43,6 @@ import TextareaInput from '@/Shared/TextareaInput'
 import FileInput from '@/Shared/FileInput'
 
 export default {
-  created() {
-    console.log(this.errors);
-  },
   components: {
     TextInput,
     SelectInput,
@@ -53,7 +50,7 @@ export default {
     FileInput
   },
   props: {
-    errors: Object,
+    contact: Object,
   },
   data() {
     return {
@@ -63,10 +60,10 @@ export default {
       form: {
         address: null,
         file: null,
-        first_name: null,
-        last_name: null,
+        first_name: this.contact ? this.contact.first_name : null,
+        last_name: this.contact ? this.contact.last_name : null,
         city: null,
-        email: null
+        email: this.contact ? this.contact.email : null,
       }
     };
   },
@@ -85,11 +82,11 @@ export default {
       return dirty || validated ? valid : null;
     },
     onSubmit() {
-      // console.log(this.$page.props);
-      this.$inertia.post(this.route('contact.store'), this.form, {
+      console.log(this.contact);
+      /* this.$inertia.post(this.route('contact.store'), this.form, {
         onStart: () => this.sending = true,
         onFinish: () => this.sending = false,
-      })
+      }) */
     }
   }
 };

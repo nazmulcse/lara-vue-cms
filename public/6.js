@@ -56,9 +56,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {
-    console.log(this.errors);
-  },
   components: {
     TextInput: _Shared_TextInput__WEBPACK_IMPORTED_MODULE_0__["default"],
     SelectInput: _Shared_SelectInput__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -66,7 +63,7 @@ __webpack_require__.r(__webpack_exports__);
     FileInput: _Shared_FileInput__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   props: {
-    errors: Object
+    contact: Object
   },
   data: function data() {
     return {
@@ -77,10 +74,10 @@ __webpack_require__.r(__webpack_exports__);
       form: {
         address: null,
         file: null,
-        first_name: null,
-        last_name: null,
+        first_name: this.contact ? this.contact.first_name : null,
+        last_name: this.contact ? this.contact.last_name : null,
         city: null,
-        email: null
+        email: this.contact ? this.contact.email : null
       }
     };
   },
@@ -104,17 +101,11 @@ __webpack_require__.r(__webpack_exports__);
       return dirty || validated ? valid : null;
     },
     onSubmit: function onSubmit() {
-      var _this2 = this;
-
-      // console.log(this.$page.props);
-      this.$inertia.post(this.route('contact.store'), this.form, {
-        onStart: function onStart() {
-          return _this2.sending = true;
-        },
-        onFinish: function onFinish() {
-          return _this2.sending = false;
-        }
-      });
+      console.log(this.contact);
+      /* this.$inertia.post(this.route('contact.store'), this.form, {
+        onStart: () => this.sending = true,
+        onFinish: () => this.sending = false,
+      }) */
     }
   }
 });
@@ -433,6 +424,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   inheritAttrs: false,
   props: {
@@ -594,6 +587,7 @@ var render = function() {
                             attrs: {
                               placeholder: "Enter your address",
                               rules: { required: false },
+                              error: _vm.$page.props.errors.address,
                               label: "Address",
                               id: "address"
                             },
@@ -1007,6 +1001,7 @@ var render = function() {
                       _vm._b(
                         {
                           ref: "input",
+                          class: { "is-invalid": _vm.error },
                           attrs: {
                             id: _vm.id,
                             name: _vm.id,
@@ -1029,7 +1024,9 @@ var render = function() {
                     _vm._v(" "),
                     _c("b-form-invalid-feedback", [
                       _vm._v(_vm._s(validationContext.errors[0]))
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c("b-form-invalid-feedback", [_vm._v(_vm._s(_vm.error))])
                   ],
                   1
                 )

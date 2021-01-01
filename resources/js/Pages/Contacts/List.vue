@@ -6,8 +6,8 @@
     :breadcrumbs="breadcrumbs">
     <h1 class="mb-8 font-bold text-3xl">Contacts</h1>
     <div class="contact">
-      <table class="table">
-        <thead class="thead-dark">
+      <table class="table table-hover table-striped mb-0">
+        <thead class="bg-secondary text-white">
             <tr>
             <th scope="col">#</th>
             <th scope="col">First Name</th>
@@ -31,9 +31,10 @@
                 </div> -->
                 <div>
                   <b-dropdown size="sm" text="Action" variant="outline-secondary">
-                    <b-dropdown-item href="#">
-                      <em>Edit</em>
-                    </b-dropdown-item>
+                    <inertia-link role="menuitem" class="dropdown-item" :href="route('contact.edit', contact.id)">
+                        <i class="icon-pencil7"></i>
+                        Edit
+                    </inertia-link>
                     <b-dropdown-divider></b-dropdown-divider>
                     <b-dropdown-item href="#">Delete</b-dropdown-item>
                   </b-dropdown>

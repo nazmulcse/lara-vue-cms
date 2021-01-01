@@ -29,4 +29,12 @@ class ContactController extends Controller
 
         return Redirect::route('contact.create')->with('success', 'Contact created.');
     }
+
+    public function edit($id)
+    {
+        $data = [
+            'contact' => Contact::find($id)
+        ];
+        return Inertia::render('Contacts/Edit', $data);
+    }
 }
