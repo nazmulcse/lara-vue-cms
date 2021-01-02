@@ -29,4 +29,17 @@ class Contact extends FormRequest
             'address' => ['required'],
         ];
     }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'first_name.required' => 'Please enter your first name',
+            'last_name.required' => 'Enter your last name',
+        ];
+    }
 }

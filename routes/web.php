@@ -26,6 +26,8 @@ Route::prefix('admin')->group(function () {
   Route::get('/contacts/create', [ContactController::class, 'create'])->name('contact.create');
   Route::post('/contacts', [ContactController::class, 'store'])->name('contact.store');
   Route::get('/contacts/edit/{id}', [ContactController::class, 'edit'])->name('contact.edit');
+  Route::put('/contacts/{id}', [ContactController::class, 'update'])->name('contact.update');
+  Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

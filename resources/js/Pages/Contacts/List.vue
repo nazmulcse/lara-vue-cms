@@ -36,7 +36,15 @@
                         Edit
                     </inertia-link>
                     <b-dropdown-divider></b-dropdown-divider>
-                    <b-dropdown-item href="#">Delete</b-dropdown-item>
+                    <!-- <inertia-link role="menuitem" class="text-danger dropdown-item" :href="route('contact.edit', contact.id)">
+                        <i class="icon-trash"></i>
+                        Delete
+                    </inertia-link> -->
+                    <button class="text-danger dropdown-item" type="button" @click="destroy(contact.id)">
+                      <i class="icon-trash"></i>
+                      Delete
+                    </button>
+
                   </b-dropdown>
                 </div>
               </div>
@@ -79,6 +87,13 @@ export default {
   },
   props: {
     contacts: Object
+  },
+  methods: {
+    destroy(contactId) {
+      if (confirm('Are you sure you want to delete this contact?')) {
+        this.$inertia.delete(this.route('contact.destroy', contactId))
+      }
+    },
   },
 }
 </script>

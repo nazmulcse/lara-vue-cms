@@ -77939,121 +77939,121 @@ var map = {
 		0,
 		1,
 		2,
-		4,
+		5,
 		7,
-		20
+		21
 	],
 	"./API/Index.vue": [
 		"./resources/js/Pages/API/Index.vue",
 		0,
 		1,
 		2,
-		4,
+		5,
 		7,
-		20
+		21
 	],
 	"./Contacts/Create": [
 		"./resources/js/Pages/Contacts/Create.vue",
-		5,
+		4,
 		3,
 		6,
 		13
 	],
 	"./Contacts/Create.vue": [
 		"./resources/js/Pages/Contacts/Create.vue",
-		5,
+		4,
 		3,
 		6,
 		13
 	],
 	"./Contacts/Edit": [
 		"./resources/js/Pages/Contacts/Edit.vue",
-		5,
+		4,
 		3,
 		6,
-		23
+		14
 	],
 	"./Contacts/Edit.vue": [
 		"./resources/js/Pages/Contacts/Edit.vue",
-		5,
+		4,
 		3,
 		6,
-		23
+		14
 	],
 	"./Contacts/Form": [
 		"./resources/js/Pages/Contacts/Form.vue",
 		6,
-		21
+		22
 	],
 	"./Contacts/Form.vue": [
 		"./resources/js/Pages/Contacts/Form.vue",
 		6,
-		21
+		22
 	],
 	"./Contacts/List": [
 		"./resources/js/Pages/Contacts/List.vue",
-		5,
+		4,
 		3,
-		14
+		15
 	],
 	"./Contacts/List.vue": [
 		"./resources/js/Pages/Contacts/List.vue",
-		5,
+		4,
 		3,
-		14
+		15
 	],
 	"./Dashboard": [
 		"./resources/js/Pages/Dashboard.vue",
-		4,
-		15
+		5,
+		16
 	],
 	"./Dashboard.vue": [
 		"./resources/js/Pages/Dashboard.vue",
-		4,
-		15
+		5,
+		16
 	],
 	"./Dashboard/Index": [
 		"./resources/js/Pages/Dashboard/Index.vue",
 		3,
-		18
+		19
 	],
 	"./Dashboard/Index.vue": [
 		"./resources/js/Pages/Dashboard/Index.vue",
 		3,
-		18
+		19
 	],
 	"./Profile/DeleteUserForm": [
 		"./resources/js/Pages/Profile/DeleteUserForm.vue",
 		0,
 		1,
-		17
+		18
 	],
 	"./Profile/DeleteUserForm.vue": [
 		"./resources/js/Pages/Profile/DeleteUserForm.vue",
 		0,
 		1,
-		17
+		18
 	],
 	"./Profile/LogoutOtherBrowserSessionsForm": [
 		"./resources/js/Pages/Profile/LogoutOtherBrowserSessionsForm.vue",
 		0,
 		1,
 		9,
-		16
+		17
 	],
 	"./Profile/LogoutOtherBrowserSessionsForm.vue": [
 		"./resources/js/Pages/Profile/LogoutOtherBrowserSessionsForm.vue",
 		0,
 		1,
 		9,
-		16
+		17
 	],
 	"./Profile/Show": [
 		"./resources/js/Pages/Profile/Show.vue",
 		0,
 		1,
 		2,
-		4,
+		5,
 		8,
 		9,
 		10,
@@ -78064,7 +78064,7 @@ var map = {
 		0,
 		1,
 		2,
-		4,
+		5,
 		8,
 		9,
 		10,
@@ -78075,14 +78075,14 @@ var map = {
 		0,
 		1,
 		8,
-		19
+		20
 	],
 	"./Profile/TwoFactorAuthenticationForm.vue": [
 		"./resources/js/Pages/Profile/TwoFactorAuthenticationForm.vue",
 		0,
 		1,
 		8,
-		19
+		20
 	],
 	"./Profile/UpdatePasswordForm": [
 		"./resources/js/Pages/Profile/UpdatePasswordForm.vue",

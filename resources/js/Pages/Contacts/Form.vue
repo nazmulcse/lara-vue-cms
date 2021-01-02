@@ -29,14 +29,19 @@
                 <file-input :rules="{ required: false }" v-model="form.file" label="Photo" id="photo" />
             </div>
         </div>
-        <b-button type="submit" variant="primary">Submit</b-button>
-        <b-button class="ml-2" @click="resetForm()">Reset</b-button>
+        <div class="text-right">
+          <!-- <b-button type="submit" variant="primary">Submit</b-button> -->
+          <loading-button :loading="sending" class="btn btn-primary" type="submit">Submit</loading-button>
+          <b-button class="ml-2" @click="resetForm()">Reset</b-button>
+        </div>
+        
       </b-form>
     </validation-observer>
   </div>
 </template>
 
 <script>
+import LoadingButton from '@/Shared/LoadingButton'
 import TextInput from '@/Shared/TextInput'
 import SelectInput from '@/Shared/SelectInput'
 import TextareaInput from '@/Shared/TextareaInput'
@@ -44,6 +49,7 @@ import FileInput from '@/Shared/FileInput'
 
 export default {
   components: {
+    LoadingButton,
     TextInput,
     SelectInput,
     TextareaInput,
@@ -54,15 +60,17 @@ export default {
   },
   data() {
     return {
+      sending: false,
       cities: [
         {id: '1', name: 'Lakshmipur'}
       ],
+      contactId: this.contact ? this.contact.id : null,
       form: {
-        address: null,
+        address: this.contact ? this.contact.address : null,
         file: null,
         first_name: this.contact ? this.contact.first_name : null,
         last_name: this.contact ? this.contact.last_name : null,
-        city: null,
+        city: this.contact ? this.contact.city : null,
         email: this.contact ? this.contact.email : null,
       }
     };
@@ -82,11 +90,19 @@ export default {
       return dirty || validated ? valid : null;
     },
     onSubmit() {
-      console.log(this.contact);
-      /* this.$inertia.post(this.route('contact.store'), this.form, {
-        onStart: () => this.sending = true,
-        onFinish: () => this.sending = false,
-      }) */
+      // console.log(this.contact);
+      if(this.contactId){
+        this.$inertia.put(this.route('contact.update', this.contactId), this.form, {
+          onStart: () => this.sending = true,
+          onFinish: () => this.sending = false,
+        })
+      } else {
+        this.$inertia.post(this.route('contact.store'), this.form, {
+          onStart: () => this.sending = true,
+          onFinish: () => this.sending = false,
+        })
+      }
+      
     }
   }
 };
