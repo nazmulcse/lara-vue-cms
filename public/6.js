@@ -82,7 +82,7 @@ __webpack_require__.r(__webpack_exports__);
       contactId: this.contact ? this.contact.id : null,
       form: {
         address: this.contact ? this.contact.address : null,
-        file: null,
+        photo: null,
         first_name: this.contact ? this.contact.first_name : null,
         last_name: this.contact ? this.contact.last_name : null,
         city: this.contact ? this.contact.city : null,
@@ -172,6 +172,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     id: {
@@ -180,6 +181,7 @@ __webpack_require__.r(__webpack_exports__);
         return "text-input-".concat(this._uid);
       }
     },
+    error: String,
     placeholder: {
       type: String,
       "default": 'Choose file..'
@@ -189,13 +191,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     value: File,
     label: String,
-    accept: String,
-    errors: {
-      type: Array,
-      "default": function _default() {
-        return [];
-      }
-    }
+    accept: String
   },
   watch: {
     value: function value(_value) {
@@ -248,7 +244,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    loading: Boolean
+    loading: Boolean,
+    type: String,
+    variant: String
   }
 });
 
@@ -263,6 +261,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -661,6 +660,7 @@ var render = function() {
                             attrs: {
                               options: _vm.cities,
                               rules: { required: false },
+                              error: _vm.$page.props.errors.city,
                               label: "City",
                               id: "city"
                             },
@@ -683,15 +683,16 @@ var render = function() {
                           _c("file-input", {
                             attrs: {
                               rules: { required: false },
+                              error: _vm.$page.props.errors.photo,
                               label: "Photo",
                               id: "photo"
                             },
                             model: {
-                              value: _vm.form.file,
+                              value: _vm.form.photo,
                               callback: function($$v) {
-                                _vm.$set(_vm.form, "file", $$v)
+                                _vm.$set(_vm.form, "photo", $$v)
                               },
-                              expression: "form.file"
+                              expression: "form.photo"
                             }
                           })
                         ],
@@ -706,8 +707,11 @@ var render = function() {
                         _c(
                           "loading-button",
                           {
-                            staticClass: "btn btn-primary",
-                            attrs: { loading: _vm.sending, type: "submit" }
+                            attrs: {
+                              loading: _vm.sending,
+                              variant: "primary",
+                              type: "submit"
+                            }
                           },
                           [_vm._v("Submit")]
                         ),
@@ -785,6 +789,7 @@ var render = function() {
                       _vm._b(
                         {
                           ref: "input",
+                          class: { "is-invalid": _vm.error },
                           attrs: {
                             id: _vm.id,
                             name: _vm.id,
@@ -806,7 +811,9 @@ var render = function() {
                     _vm._v(" "),
                     _c("b-form-invalid-feedback", [
                       _vm._v(_vm._s(validationContext.errors[0]))
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c("b-form-invalid-feedback", [_vm._v(_vm._s(_vm.error))])
                   ],
                   1
                 )
@@ -814,13 +821,7 @@ var render = function() {
             }
           }
         ])
-      }),
-      _vm._v(" "),
-      _vm.errors.length
-        ? _c("div", { staticClass: "form-error" }, [
-            _vm._v(_vm._s(_vm.errors[0]))
-          ])
-        : _vm._e()
+      })
     ],
     1
   )
@@ -848,10 +849,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "button",
-    { attrs: { disabled: _vm.loading } },
+    "b-button",
+    { attrs: { type: _vm.type, variant: _vm.variant, disabled: _vm.loading } },
     [
-      _vm.loading ? _c("div", { staticClass: "btn-spinner mr-2" }) : _vm._e(),
+      _vm.loading ? _c("b-spinner", { attrs: { small: "" } }) : _vm._e(),
       _vm._v(" "),
       _vm._t("default")
     ],
@@ -905,6 +906,7 @@ var render = function() {
                       _vm._b(
                         {
                           ref: "input",
+                          class: { "is-invalid": _vm.error },
                           attrs: {
                             id: _vm.id,
                             name: _vm.id,
@@ -947,7 +949,9 @@ var render = function() {
                     _vm._v(" "),
                     _c("b-form-invalid-feedback", [
                       _vm._v(_vm._s(validationContext.errors[0]))
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c("b-form-invalid-feedback", [_vm._v(_vm._s(_vm.error))])
                   ],
                   1
                 )
@@ -955,11 +959,7 @@ var render = function() {
             }
           }
         ])
-      }),
-      _vm._v(" "),
-      _vm.error
-        ? _c("div", { staticClass: "form-error" }, [_vm._v(_vm._s(_vm.error))])
-        : _vm._e()
+      })
     ],
     1
   )

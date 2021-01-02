@@ -27,6 +27,8 @@ class Contact extends FormRequest
             'first_name' => ['required', 'max:50'],
             'last_name' => ['required', 'max:50'],
             'address' => ['required'],
+            'photo' => ['required'],
+            'city' => ['required'],
         ];
     }
 

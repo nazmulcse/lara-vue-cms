@@ -23,15 +23,15 @@
                 <textarea-input placeholder="Enter your address" :rules="{ required: false }" :error="$page.props.errors.address" v-model="form.address" label="Address" id="address" />
             </div>
             <div class="col-sm-4">
-                <select-input :options="cities" :rules="{ required: false }" v-model="form.city" label="City" id="city" />
+                <select-input :options="cities" :rules="{ required: false }" :error="$page.props.errors.city" v-model="form.city" label="City" id="city" />
             </div>
             <div class="col-sm-4">
-                <file-input :rules="{ required: false }" v-model="form.file" label="Photo" id="photo" />
+                <file-input :rules="{ required: false }" :error="$page.props.errors.photo" v-model="form.photo" label="Photo" id="photo" />
             </div>
         </div>
         <div class="text-right">
           <!-- <b-button type="submit" variant="primary">Submit</b-button> -->
-          <loading-button :loading="sending" class="btn btn-primary" type="submit">Submit</loading-button>
+          <loading-button :loading="sending" variant="primary" type="submit">Submit</loading-button>
           <b-button class="ml-2" @click="resetForm()">Reset</b-button>
         </div>
         
@@ -67,7 +67,7 @@ export default {
       contactId: this.contact ? this.contact.id : null,
       form: {
         address: this.contact ? this.contact.address : null,
-        file: null,
+        photo: null,
         first_name: this.contact ? this.contact.first_name : null,
         last_name: this.contact ? this.contact.last_name : null,
         city: this.contact ? this.contact.city : null,

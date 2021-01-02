@@ -10,6 +10,7 @@
             :id="id"
             ref="input"
             :name="id"
+            :class="{ 'is-invalid' : error }"
             :value-field="value_field"
             :text-field="text_field"
             :options="options"
@@ -23,9 +24,9 @@
             </template>
             </b-form-select>
             <b-form-invalid-feedback>{{ validationContext.errors[0] }}</b-form-invalid-feedback>
+            <b-form-invalid-feedback>{{ error }}</b-form-invalid-feedback>
         </b-form-group>
     </validation-provider>
-    <div v-if="error" class="form-error">{{ error }}</div>
   </div>
 </template>
 

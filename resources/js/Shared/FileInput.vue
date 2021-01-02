@@ -10,6 +10,7 @@
             :id="id"
             ref="input"
             :name="id"
+            :class="{ 'is-invalid' : error }"
             v-bind="$attrs"
             :placeholder="placeholder"
             :value="value"
@@ -17,9 +18,9 @@
             :state="getValidationState(validationContext)"
             ></b-form-file>
             <b-form-invalid-feedback>{{ validationContext.errors[0] }}</b-form-invalid-feedback>
+            <b-form-invalid-feedback>{{ error }}</b-form-invalid-feedback>
         </b-form-group>
     </validation-provider>
-    <div v-if="errors.length" class="form-error">{{ errors[0] }}</div>
   </div>
 </template>
 
@@ -32,6 +33,7 @@ export default {
         return `text-input-${this._uid}`
       },
     },
+    error: String,
     placeholder: {
       type: String,
       default: 'Choose file..'
@@ -42,10 +44,6 @@ export default {
     value: File,
     label: String,
     accept: String,
-    errors: {
-      type: Array,
-      default: () => [],
-    },
   },
   watch: {
     value(value) {

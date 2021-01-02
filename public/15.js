@@ -64,20 +64,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -264,66 +250,59 @@ var render = function() {
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(contact.email))]),
                 _vm._v(" "),
-                _c("td", [
-                  _c("div", { staticClass: "dropdown" }, [
+                _c(
+                  "td",
+                  [
                     _c(
-                      "div",
+                      "b-dropdown",
+                      {
+                        attrs: {
+                          size: "sm",
+                          text: "Action",
+                          variant: "outline-secondary"
+                        }
+                      },
                       [
                         _c(
-                          "b-dropdown",
+                          "inertia-link",
                           {
+                            staticClass: "dropdown-item",
                             attrs: {
-                              size: "sm",
-                              text: "Action",
-                              variant: "outline-secondary"
+                              role: "menuitem",
+                              href: _vm.route("contact.edit", contact.id)
                             }
                           },
                           [
-                            _c(
-                              "inertia-link",
-                              {
-                                staticClass: "dropdown-item",
-                                attrs: {
-                                  role: "menuitem",
-                                  href: _vm.route("contact.edit", contact.id)
-                                }
-                              },
-                              [
-                                _c("i", { staticClass: "icon-pencil7" }),
-                                _vm._v(
-                                  "\n                      Edit\n                  "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("b-dropdown-divider"),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "text-danger dropdown-item",
-                                attrs: { type: "button" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.destroy(contact.id)
-                                  }
-                                }
-                              },
-                              [
-                                _c("i", { staticClass: "icon-trash" }),
-                                _vm._v(
-                                  "\n                    Delete\n                  "
-                                )
-                              ]
-                            )
-                          ],
-                          1
+                            _c("i", { staticClass: "icon-pencil7" }),
+                            _vm._v("\n                  Edit\n              ")
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("b-dropdown-divider"),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-link text-danger dropdown-item",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.destroy(contact.id)
+                              }
+                            }
+                          },
+                          [
+                            _c("i", { staticClass: "icon-trash" }),
+                            _vm._v("\n                Delete\n              ")
+                          ]
                         )
                       ],
                       1
                     )
-                  ])
-                ])
+                  ],
+                  1
+                )
               ])
             }),
             0

@@ -55,8 +55,8 @@ __webpack_require__.r(__webpack_exports__);
         title: "List"
       }],
       buttons: [{
-        url: "contact.create",
-        title: "Add Contacts",
+        url: "contact.list",
+        title: "Contacts List",
         "class": "btn-sm btn-primary"
       }]
     };

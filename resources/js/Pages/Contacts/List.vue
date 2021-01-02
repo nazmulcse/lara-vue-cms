@@ -23,31 +23,17 @@
             <td>{{ contact.last_name }}</td>
             <td>{{ contact.email }}</td>
             <td>
-              <div class="dropdown">
-                <!-- <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" :id="contact.id" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Action
+              <b-dropdown size="sm" text="Action" variant="outline-secondary">
+                <inertia-link role="menuitem" class="dropdown-item" :href="route('contact.edit', contact.id)">
+                    <i class="icon-pencil7"></i>
+                    Edit
+                </inertia-link>
+                <b-dropdown-divider></b-dropdown-divider>
+                <button class="btn btn-link text-danger dropdown-item" type="button" @click="destroy(contact.id)">
+                  <i class="icon-trash"></i>
+                  Delete
                 </button>
-                <div class="dropdown-menu dropdown-menu-right" :aria-labelledby="contact.id">
-                </div> -->
-                <div>
-                  <b-dropdown size="sm" text="Action" variant="outline-secondary">
-                    <inertia-link role="menuitem" class="dropdown-item" :href="route('contact.edit', contact.id)">
-                        <i class="icon-pencil7"></i>
-                        Edit
-                    </inertia-link>
-                    <b-dropdown-divider></b-dropdown-divider>
-                    <!-- <inertia-link role="menuitem" class="text-danger dropdown-item" :href="route('contact.edit', contact.id)">
-                        <i class="icon-trash"></i>
-                        Delete
-                    </inertia-link> -->
-                    <button class="text-danger dropdown-item" type="button" @click="destroy(contact.id)">
-                      <i class="icon-trash"></i>
-                      Delete
-                    </button>
-
-                  </b-dropdown>
-                </div>
-              </div>
+              </b-dropdown>
             </td>
           </tr>
         </tbody>
