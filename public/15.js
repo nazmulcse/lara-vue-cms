@@ -64,6 +64,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -87,7 +92,8 @@ __webpack_require__.r(__webpack_exports__);
       buttons: [{
         url: "contact.create",
         title: "Add Contacts",
-        "class": "btn-sm btn-primary"
+        "class": "btn-sm btn-primary",
+        icon: "icon-plus3"
       }]
     };
   },
@@ -211,6 +217,7 @@ var render = function() {
       attrs: {
         page_header: "Contacts",
         header_icon: "icon-users",
+        menu_active: "contact",
         buttons: _vm.buttons,
         breadcrumbs: _vm.breadcrumbs
       }
@@ -232,6 +239,8 @@ var render = function() {
               _vm._v(" "),
               _c("th", { attrs: { scope: "col" } }, [_vm._v("Email")]),
               _vm._v(" "),
+              _c("th", { attrs: { scope: "col" } }, [_vm._v("Photo")]),
+              _vm._v(" "),
               _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")])
             ])
           ]),
@@ -249,6 +258,19 @@ var render = function() {
                 _c("td", [_vm._v(_vm._s(contact.last_name))]),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(contact.email))]),
+                _vm._v(" "),
+                _c("td", [
+                  contact.photo
+                    ? _c("img", {
+                        attrs: {
+                          width: "60",
+                          height: "60",
+                          src: "/storage/" + contact.photo,
+                          alt: ""
+                        }
+                      })
+                    : _vm._e()
+                ]),
                 _vm._v(" "),
                 _c(
                   "td",

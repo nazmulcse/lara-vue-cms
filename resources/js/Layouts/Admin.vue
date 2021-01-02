@@ -5,7 +5,7 @@
     <!-- Header -->
     <div class="body-content d-flex">
       <aside class="sidebar sidebar-dark sidebar-expand-md" data-navtype="accordion">
-        <admin-sidebar/>
+        <admin-sidebar :menu_active="menu_active"/>
       </aside>
       <main class="main">
         <h3 class="page-header pt-2 pb-2 pl-3 pr-3 mb-0">
@@ -32,8 +32,8 @@
               <div class="col-sm-6 breadcrumb-right">
                 <template v-for="(button, key) in buttons">
                   <inertia-link :key="key" :href="route(button.url)" :class="button.class" class="btn">
-                                {{ button.title   }} 
-                              </inertia-link>
+                    <i class="mr-1" :class="button.icon"></i> {{ button.title   }} 
+                  </inertia-link>
                 </template>
               </div>
           </div>
@@ -74,7 +74,8 @@ export default {
     header_icon: String,
     page_header: String,
     breadcrumbs: Array,
-    buttons: Array
+    buttons: Array,
+    menu_active: String
   },
   methods: {
     url() {

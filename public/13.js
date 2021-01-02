@@ -33,6 +33,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -57,7 +58,8 @@ __webpack_require__.r(__webpack_exports__);
       buttons: [{
         url: "contact.list",
         title: "Contacts List",
-        "class": "btn-sm btn-primary"
+        "class": "btn-sm btn-primary",
+        icon: "icon-list-unordered"
       }]
     };
   },
@@ -176,6 +178,7 @@ var render = function() {
       attrs: {
         page_header: "Contacts",
         header_icon: "icon-users",
+        menu_active: "contact",
         buttons: _vm.buttons,
         breadcrumbs: _vm.breadcrumbs
       }

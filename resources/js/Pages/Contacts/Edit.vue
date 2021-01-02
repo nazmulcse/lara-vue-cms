@@ -2,6 +2,7 @@
   <admin 
     page_header="Edit Contacts"
     header_icon="icon-users"
+    menu_active="contact"
     :buttons="buttons"
     :breadcrumbs="breadcrumbs">
     <div class="card">
@@ -30,8 +31,8 @@ export default {
         {url: "#", title:"Edit"}
       ],
       buttons: [
-        {url: "contact.list", title:"Contacts List", class: "btn-sm btn-outline-primary mr-2"},
-        {url: "contact.create", title:"Add Contacts", class: "btn-sm btn-primary"}
+        {url: "contact.list", title:"Contacts List", class: "btn-sm btn-outline-primary mr-2", icon:"icon-list-unordered"},
+        {url: "contact.create", title:"Add Contacts", class: "btn-sm btn-primary", icon: "icon-plus3"}
       ]
     }
   },

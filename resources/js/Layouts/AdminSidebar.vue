@@ -9,7 +9,7 @@
             </a>
             <ul class="submenu" data-submenu-title="মিটিং ট্র্যাকার">
                 <li>
-                    <a class="dropdown-item " href="https://mislgsp.gov.bd/bn/admin/mtr/mtr-up/list">
+                    <a class="dropdown-item " href="#">
                         মিটিং ট্র্যাকার (ইউপি)
                     </a>
                 </li>
@@ -22,14 +22,14 @@
             </a>
             <ul class="submenu" data-submenu-title="মিটিং ট্র্যাকার">
                 <li>
-                    <a class="dropdown-item " href="https://mislgsp.gov.bd/bn/admin/mtr/mtr-up/list">
+                    <a class="dropdown-item " href="#">
                         BGCC Meeting
                     </a>
                 </li>
             </ul>
         </li>
         <li class="nav-item">
-          <inertia-link showProgress="true" class="nav-link" :href="route('contact.list')">
+          <inertia-link showProgress="true" class="nav-link" :class="{ 'active': menu_active === 'contact' }" :href="route('contact.list')">
             <i class="icon-stack-text" aria-hidden="true"></i>
                 <span>Contacts</span>
           </inertia-link>
@@ -67,6 +67,7 @@ export default {
   },
   props: {
     url: String,
+    menu_active: String,
   },
   methods: {
     isUrl(...urls) {

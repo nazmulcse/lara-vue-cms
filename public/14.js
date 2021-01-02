@@ -33,6 +33,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -57,11 +58,13 @@ __webpack_require__.r(__webpack_exports__);
       buttons: [{
         url: "contact.list",
         title: "Contacts List",
-        "class": "btn-sm btn-outline-primary mr-2"
+        "class": "btn-sm btn-outline-primary mr-2",
+        icon: "icon-list-unordered"
       }, {
         url: "contact.create",
         title: "Add Contacts",
-        "class": "btn-sm btn-primary"
+        "class": "btn-sm btn-primary",
+        icon: "icon-plus3"
       }]
     };
   },
@@ -179,6 +182,7 @@ var render = function() {
       attrs: {
         page_header: "Edit Contacts",
         header_icon: "icon-users",
+        menu_active: "contact",
         buttons: _vm.buttons,
         breadcrumbs: _vm.breadcrumbs
       }

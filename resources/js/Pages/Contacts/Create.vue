@@ -2,6 +2,7 @@
   <admin 
     page_header="Contacts"
     header_icon="icon-users"
+    menu_active="contact"
     :buttons="buttons"
     :breadcrumbs="breadcrumbs">
     <div class="card">
@@ -30,7 +31,7 @@ export default {
         {url: "#", title:"List"}
       ],
       buttons: [
-        {url: "contact.list", title:"Contacts List", class: "btn-sm btn-primary"}
+        {url: "contact.list", title:"Contacts List", class: "btn-sm btn-primary", icon:"icon-list-unordered"}
       ]
     }
   },

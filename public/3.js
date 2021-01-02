@@ -89,7 +89,8 @@ __webpack_require__.r(__webpack_exports__);
     header_icon: String,
     page_header: String,
     breadcrumbs: Array,
-    buttons: Array
+    buttons: Array,
+    menu_active: String
   },
   methods: {
     url: function url() {
@@ -257,7 +258,8 @@ __webpack_require__.r(__webpack_exports__);
     Icon: _Shared_Icon__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: {
-    url: String
+    url: String,
+    menu_active: String
   },
   methods: {
     isUrl: function isUrl() {
@@ -514,7 +516,7 @@ var render = function() {
             staticClass: "sidebar sidebar-dark sidebar-expand-md",
             attrs: { "data-navtype": "accordion" }
           },
-          [_c("admin-sidebar")],
+          [_c("admin-sidebar", { attrs: { menu_active: _vm.menu_active } })],
           1
         ),
         _vm._v(" "),
@@ -591,10 +593,9 @@ var render = function() {
                           attrs: { href: _vm.route(button.url) }
                         },
                         [
+                          _c("i", { staticClass: "mr-1", class: button.icon }),
                           _vm._v(
-                            "\n                              " +
-                              _vm._s(button.title) +
-                              " \n                            "
+                            " " + _vm._s(button.title) + " \n                "
                           )
                         ]
                       )
@@ -678,7 +679,7 @@ var render = function() {
                               attrs: { "aria-hidden": "true" }
                             }),
                             _vm._v(" "),
-                            _c("strong", [_vm._v("Md. Arif Hossain (TVL)")])
+                            _c("strong", [_vm._v("Nazmul Hasan")])
                           ])
                         ]
                       },
@@ -711,39 +712,27 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "navbar-brand",
-        attrs: { href: "https://mislgsp.gov.bd/bn/admin/dashboard" }
-      },
-      [
-        _c("img", {
-          staticClass: "mr-1",
-          attrs: {
-            src: "https://mislgsp.gov.bd/images/bdgovtlogo.png",
-            alt: "Logo of the PRB",
-            width: "30",
-            height: "30"
-          }
-        }),
+    return _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
+      _c("img", {
+        staticClass: "mr-1",
+        attrs: { src: "#", alt: "Logo", width: "30", height: "30" }
+      }),
+      _vm._v(" "),
+      _c("span", { staticClass: "mt-1 d-inline-block" }, [
+        _c("span", { staticClass: "d-none d-sm-block" }, [
+          _vm._v("Lara Vue CMS")
+        ]),
         _vm._v(" "),
-        _c("span", { staticClass: "mt-1 d-inline-block" }, [
-          _c("span", { staticClass: "d-none d-sm-block" }, [
-            _vm._v("লোকাল গভর্ন্যান্স সাপোর্ট প্রজেক্ট-৩ (এলজিএসপি-৩)")
-          ]),
-          _vm._v(" "),
-          _c(
-            "span",
-            {
-              staticClass: "d-block d-sm-none",
-              attrs: { "aria-hidden": "true" }
-            },
-            [_vm._v("এলজিএসপি-৩")]
-          )
-        ])
-      ]
-    )
+        _c(
+          "span",
+          {
+            staticClass: "d-block d-sm-none",
+            attrs: { "aria-hidden": "true" }
+          },
+          [_vm._v("এলজিএসপি-৩")]
+        )
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -864,6 +853,7 @@ var render = function() {
               "inertia-link",
               {
                 staticClass: "nav-link",
+                class: { active: _vm.menu_active === "contact" },
                 attrs: { showProgress: "true", href: _vm.route("contact.list") }
               },
               [
@@ -915,20 +905,11 @@ var staticRenderFns = [
           },
           [
             _c("li", [
-              _c(
-                "a",
-                {
-                  staticClass: "dropdown-item ",
-                  attrs: {
-                    href: "https://mislgsp.gov.bd/bn/admin/mtr/mtr-up/list"
-                  }
-                },
-                [
-                  _vm._v(
-                    "\n                      মিটিং ট্র্যাকার (ইউপি)\n                  "
-                  )
-                ]
-              )
+              _c("a", { staticClass: "dropdown-item ", attrs: { href: "#" } }, [
+                _vm._v(
+                  "\n                      মিটিং ট্র্যাকার (ইউপি)\n                  "
+                )
+              ])
             ])
           ]
         )
@@ -967,20 +948,11 @@ var staticRenderFns = [
           },
           [
             _c("li", [
-              _c(
-                "a",
-                {
-                  staticClass: "dropdown-item ",
-                  attrs: {
-                    href: "https://mislgsp.gov.bd/bn/admin/mtr/mtr-up/list"
-                  }
-                },
-                [
-                  _vm._v(
-                    "\n                      BGCC Meeting\n                  "
-                  )
-                ]
-              )
+              _c("a", { staticClass: "dropdown-item ", attrs: { href: "#" } }, [
+                _vm._v(
+                  "\n                      BGCC Meeting\n                  "
+                )
+              ])
             ])
           ]
         )

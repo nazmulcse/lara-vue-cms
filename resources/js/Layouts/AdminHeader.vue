@@ -1,8 +1,8 @@
 <template>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-retail">
-   <a class="navbar-brand" href="https://mislgsp.gov.bd/bn/admin/dashboard">
-   <img src="https://mislgsp.gov.bd/images/bdgovtlogo.png" alt="Logo of the PRB" class="mr-1" width="30" height="30">
-   <span class="mt-1 d-inline-block"><span class="d-none d-sm-block">লোকাল গভর্ন্যান্স সাপোর্ট প্রজেক্ট-৩ (এলজিএসপি-৩)</span> <span class="d-block d-sm-none" aria-hidden="true">এলজিএসপি-৩</span></span>
+   <a class="navbar-brand" href="#">
+   <img src="#" alt="Logo" class="mr-1" width="30" height="30">
+   <span class="mt-1 d-inline-block"><span class="d-none d-sm-block">Lara Vue CMS</span> <span class="d-block d-sm-none" aria-hidden="true">এলজিএসপি-৩</span></span>
    </a>
    <div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-nav-collapsible" aria-controls="top-nav-collapsible" aria-expanded="false" aria-label="Toggle Top Navigation">
@@ -31,7 +31,7 @@
           <template #button-content>
               <em>
             <i class="icon-user mr-1" aria-hidden="true"></i>
-            <strong>Md. Arif Hossain (TVL)</strong>
+            <strong>Nazmul Hasan</strong>
             </em>
           </template>
           <b-dropdown-item href="#">Profile</b-dropdown-item>

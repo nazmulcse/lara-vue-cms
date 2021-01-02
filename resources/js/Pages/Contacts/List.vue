@@ -2,6 +2,7 @@
   <admin 
     page_header="Contacts"
     header_icon="icon-users"
+    menu_active="contact"
     :buttons="buttons"
     :breadcrumbs="breadcrumbs">
     <h1 class="mb-8 font-bold text-3xl">Contacts</h1>
@@ -13,6 +14,7 @@
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Email</th>
+            <th scope="col">Photo</th>
             <th scope="col">Action</th>
             </tr>
         </thead>
@@ -22,6 +24,9 @@
             <td>{{ contact.first_name }}</td>
             <td>{{ contact.last_name }}</td>
             <td>{{ contact.email }}</td>
+            <td>
+              <img v-if="contact.photo" width="60" height="60" :src="'/storage/' + contact.photo" alt="">
+            </td>
             <td>
               <b-dropdown size="sm" text="Action" variant="outline-secondary">
                 <inertia-link role="menuitem" class="dropdown-item" :href="route('contact.edit', contact.id)">
@@ -61,7 +66,7 @@ export default {
         {url: "#", title:"List"}
       ],
       buttons: [
-        {url: "contact.create", title:"Add Contacts", class: "btn-sm btn-primary"}
+        {url: "contact.create", title:"Add Contacts", class: "btn-sm btn-primary", icon:"icon-plus3"}
       ]
     }
   },

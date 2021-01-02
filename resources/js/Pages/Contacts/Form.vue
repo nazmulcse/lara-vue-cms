@@ -6,10 +6,6 @@
             <div class="col-sm-4">
                 <text-input :rules="{ required: false }" :error="$page.props.errors.first_name"  v-model="form.first_name" label="First Name" id="first_name" />
             </div>
-           <!--  <div class="col-sm-4">
-                <div class="invalid-feedback test" v-if="$page.props.errors.first_name">{{ $page.props.errors.first_name }}</div>
-
-            </div> -->
             <div class="col-sm-4">
                 <text-input :rules="{ required: false }" :error="$page.props.errors.last_name" v-model="form.last_name" label="Last Name" id="last_name" />
             </div>
@@ -72,6 +68,7 @@ export default {
         last_name: this.contact ? this.contact.last_name : null,
         city: this.contact ? this.contact.city : null,
         email: this.contact ? this.contact.email : null,
+        _method: this.contact ? 'put' : 'post',   // This property is used for file uploading. Because formdata with file not sent to backend in put method if we do not use this property
       }
     };
   },
@@ -92,7 +89,7 @@ export default {
     onSubmit() {
       // console.log(this.contact);
       if(this.contactId){
-        this.$inertia.put(this.route('contact.update', this.contactId), this.form, {
+        this.$inertia.post(this.route('contact.update', this.contactId), this.form, {
           onStart: () => this.sending = true,
           onFinish: () => this.sending = false,
         })
