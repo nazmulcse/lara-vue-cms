@@ -5,34 +5,19 @@
     menu_active="contact"
     :buttons="buttons"
     :breadcrumbs="breadcrumbs">
-    <div>
-      <b-card no-body class="panel-theme panel-group-control filter-card mb-3">
-        <div class="card-header bg-secondary text-white">
-            <b-button variant="link" v-b-toggle.collapse-1 class="btn-sm btn-block p-0 text-white text-left">
-              <i class="icon-filter4 mr-1" aria-hidden="true"></i> Filter
-            </b-button>
-        </div>
-        <b-collapse id="collapse-1" class="mt-2">
-          <b-card-body>
-            <p class="card-text">Collapse contents Here</p>
-            <b-button v-b-toggle.collapse-1-inner size="sm">Toggle Inner Collapse</b-button>
-            <b-collapse id="collapse-1-inner" class="mt-2">
-              <b-card>Hello!</b-card>
-            </b-collapse>
-          </b-card-body>
-        </b-collapse>
-      </b-card>
-      <!-- <b-button v-b-toggle.collapse-1 variant="primary">Toggle Collapse</b-button>
-      <b-collapse id="collapse-1" class="mt-2">
-        <b-card>
-          <p class="card-text">Collapse contents Here</p>
-          <b-button v-b-toggle.collapse-1-inner size="sm">Toggle Inner Collapse</b-button>
-          <b-collapse id="collapse-1-inner" class="mt-2">
-            <b-card>Hello!</b-card>
-          </b-collapse>
-        </b-card>
-      </b-collapse> -->
-    </div>
+    <admin-filter-form>
+      <div class="row">
+          <div class="col-sm-4">
+              <text-input :rules="{ required: false }" :error="$page.props.errors.first_name"  v-model="form.first_name" label="First Name" id="first_name" />
+          </div>
+          <div class="col-sm-4">
+              <text-input :rules="{ required: false }" :error="$page.props.errors.last_name" v-model="form.last_name" label="Last Name" id="last_name" />
+          </div>
+          <div class="col-sm-4">
+              <text-input type="email" :rules="{ required: false, email: true }" v-model="form.email" label="Email" id="email" />
+          </div>
+      </div>
+    </admin-filter-form>
     <div class="contact">
       <table class="table table-hover table-striped mb-0">
         <thead class="bg-secondary text-white">
@@ -83,6 +68,8 @@ import Pagination from '@/Shared/Pagination'
 import pickBy from 'lodash/pickBy'
 import SearchFilter from '@/Shared/SearchFilter'
 import throttle from 'lodash/throttle'
+import AdminFilterForm from '@/Layouts/AdminFilterForm'
+import TextInput from '@/Shared/TextInput'
 
 export default {
   metaInfo: { title: 'Contacts' },
@@ -94,14 +81,21 @@ export default {
       ],
       buttons: [
         {url: "contact.create", title:"Add Contacts", class: "btn-sm btn-primary", icon:"icon-plus3"}
-      ]
+      ],
+      form: {
+        first_name: this.contact ? this.contact.first_name : null,
+        last_name: this.contact ? this.contact.last_name : null,
+        email: this.contact ? this.contact.email : null,
+      }
     }
   },
   components: {
     Icon,
     Pagination,
     SearchFilter,
-    Admin
+    Admin,
+    AdminFilterForm,
+    TextInput
   },
   props: {
     contacts: Object
