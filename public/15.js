@@ -69,6 +69,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -223,9 +250,92 @@ var render = function() {
       }
     },
     [
-      _c("h1", { staticClass: "mb-8 font-bold text-3xl" }, [
-        _vm._v("Contacts")
-      ]),
+      _c(
+        "div",
+        [
+          _c(
+            "b-card",
+            {
+              staticClass: "panel-theme panel-group-control filter-card mb-3",
+              attrs: { "no-body": "" }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "card-header bg-secondary text-white" },
+                [
+                  _c(
+                    "b-button",
+                    {
+                      directives: [
+                        {
+                          name: "b-toggle",
+                          rawName: "v-b-toggle.collapse-1",
+                          modifiers: { "collapse-1": true }
+                        }
+                      ],
+                      staticClass: "btn-sm btn-block p-0 text-white text-left",
+                      attrs: { variant: "link" }
+                    },
+                    [
+                      _c("i", {
+                        staticClass: "icon-filter4 mr-1",
+                        attrs: { "aria-hidden": "true" }
+                      }),
+                      _vm._v(" Filter\n          ")
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-collapse",
+                { staticClass: "mt-2", attrs: { id: "collapse-1" } },
+                [
+                  _c(
+                    "b-card-body",
+                    [
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v("Collapse contents Here")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "b-button",
+                        {
+                          directives: [
+                            {
+                              name: "b-toggle",
+                              rawName: "v-b-toggle.collapse-1-inner",
+                              modifiers: { "collapse-1-inner": true }
+                            }
+                          ],
+                          attrs: { size: "sm" }
+                        },
+                        [_vm._v("Toggle Inner Collapse")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-collapse",
+                        {
+                          staticClass: "mt-2",
+                          attrs: { id: "collapse-1-inner" }
+                        },
+                        [_c("b-card", [_vm._v("Hello!")])],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "contact" }, [
         _c("table", { staticClass: "table table-hover table-striped mb-0" }, [

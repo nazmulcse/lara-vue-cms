@@ -452,7 +452,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".sidebar-dark[data-v-c09e41de] {\n  background-color: #3f474e;\n}\n", ""]);
+exports.push([module.i, ".sidebar-dark[data-v-c09e41de] {\n  background-color: #3f474e;\n}\r\n", ""]);
 
 // exports
 
@@ -800,7 +800,7 @@ var staticRenderFns = [
                 staticClass: "active btn btn-outline-light btn-sm",
                 attrs: { href: "https://mislgsp.gov.bd/bn//admin" }
               },
-              [_vm._v("\n               বাংলা\n               ")]
+              [_vm._v("\r\n               বাংলা\r\n               ")]
             ),
             _vm._v(" "),
             _c(
@@ -809,7 +809,7 @@ var staticRenderFns = [
                 staticClass: " btn btn-outline-light btn-sm",
                 attrs: { href: "https://mislgsp.gov.bd/en//admin" }
               },
-              [_vm._v("\n               English\n               ")]
+              [_vm._v("\r\n               English\r\n               ")]
             )
           ]
         )

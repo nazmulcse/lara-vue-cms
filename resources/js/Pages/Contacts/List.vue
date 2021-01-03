@@ -5,7 +5,34 @@
     menu_active="contact"
     :buttons="buttons"
     :breadcrumbs="breadcrumbs">
-    <h1 class="mb-8 font-bold text-3xl">Contacts</h1>
+    <div>
+      <b-card no-body class="panel-theme panel-group-control filter-card mb-3">
+        <div class="card-header bg-secondary text-white">
+            <b-button variant="link" v-b-toggle.collapse-1 class="btn-sm btn-block p-0 text-white text-left">
+              <i class="icon-filter4 mr-1" aria-hidden="true"></i> Filter
+            </b-button>
+        </div>
+        <b-collapse id="collapse-1" class="mt-2">
+          <b-card-body>
+            <p class="card-text">Collapse contents Here</p>
+            <b-button v-b-toggle.collapse-1-inner size="sm">Toggle Inner Collapse</b-button>
+            <b-collapse id="collapse-1-inner" class="mt-2">
+              <b-card>Hello!</b-card>
+            </b-collapse>
+          </b-card-body>
+        </b-collapse>
+      </b-card>
+      <!-- <b-button v-b-toggle.collapse-1 variant="primary">Toggle Collapse</b-button>
+      <b-collapse id="collapse-1" class="mt-2">
+        <b-card>
+          <p class="card-text">Collapse contents Here</p>
+          <b-button v-b-toggle.collapse-1-inner size="sm">Toggle Inner Collapse</b-button>
+          <b-collapse id="collapse-1-inner" class="mt-2">
+            <b-card>Hello!</b-card>
+          </b-collapse>
+        </b-card>
+      </b-collapse> -->
+    </div>
     <div class="contact">
       <table class="table table-hover table-striped mb-0">
         <thead class="bg-secondary text-white">
