@@ -167,9 +167,9 @@ __webpack_require__.r(__webpack_exports__);
         icon: "icon-plus3"
       }],
       form: {
-        first_name: this.contact ? this.contact.first_name : null,
-        last_name: this.contact ? this.contact.last_name : null,
-        email: this.contact ? this.contact.email : null
+        first_name: null,
+        last_name: null,
+        email: null
       }
     };
   },
@@ -184,11 +184,27 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     contacts: Object
   },
+  watch: {
+    form: {
+      handler: lodash_throttle__WEBPACK_IMPORTED_MODULE_6___default()(function () {
+        var query = lodash_pickBy__WEBPACK_IMPORTED_MODULE_4___default()(this.form);
+        this.$inertia.replace(this.route('contact.list', Object.keys(query).length ? query : {
+          remember: 'forget'
+        }));
+      }, 150),
+      deep: true
+    }
+  },
   methods: {
     destroy: function destroy(contactId) {
       if (confirm('Are you sure you want to delete this contact?')) {
         this.$inertia["delete"](this.route('contact.destroy', contactId));
       }
+    },
+    reset: function reset() {
+      this.form = lodash_mapValues__WEBPACK_IMPORTED_MODULE_2___default()(this.form, function () {
+        return null;
+      });
     }
   }
 });
@@ -445,7 +461,12 @@ var render = function() {
                           {
                             staticClass:
                               "btn btn-link text-secondary btn-sm btn-clear-filter",
-                            attrs: { type: "reset" }
+                            attrs: { type: "reset" },
+                            on: {
+                              click: function($event) {
+                                return _vm.$emit("reset")
+                              }
+                            }
                           },
                           [
                             _c("i", {
@@ -520,19 +541,14 @@ var render = function() {
       }
     },
     [
-      _c("admin-filter-form", [
+      _c("admin-filter-form", { on: { reset: _vm.reset } }, [
         _c("div", { staticClass: "row" }, [
           _c(
             "div",
             { staticClass: "col-sm-4" },
             [
               _c("text-input", {
-                attrs: {
-                  rules: { required: false },
-                  error: _vm.$page.props.errors.first_name,
-                  label: "First Name",
-                  id: "first_name"
-                },
+                attrs: { label: "First Name", id: "first_name" },
                 model: {
                   value: _vm.form.first_name,
                   callback: function($$v) {
@@ -550,12 +566,7 @@ var render = function() {
             { staticClass: "col-sm-4" },
             [
               _c("text-input", {
-                attrs: {
-                  rules: { required: false },
-                  error: _vm.$page.props.errors.last_name,
-                  label: "Last Name",
-                  id: "last_name"
-                },
+                attrs: { label: "Last Name", id: "last_name" },
                 model: {
                   value: _vm.form.last_name,
                   callback: function($$v) {
@@ -573,12 +584,7 @@ var render = function() {
             { staticClass: "col-sm-4" },
             [
               _c("text-input", {
-                attrs: {
-                  type: "email",
-                  rules: { required: false, email: true },
-                  label: "Email",
-                  id: "email"
-                },
+                attrs: { type: "email", label: "Email", id: "email" },
                 model: {
                   value: _vm.form.email,
                   callback: function($$v) {

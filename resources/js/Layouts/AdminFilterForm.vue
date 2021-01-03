@@ -15,7 +15,7 @@
                     Choose any parameter and hit the &lsquo;Filter&rsquo; button to <em>filter</em> the result
                 </div>
                 <div class="col-sm-5 text-sm-right">
-                    <button type="reset" class="btn btn-link text-secondary btn-sm btn-clear-filter">
+                    <button type="reset" @click="$emit('reset')" class="btn btn-link text-secondary btn-sm btn-clear-filter">
                         <i class="icon-cancel-circle2 mr-1" aria-hidden="true"></i> Clear Filter
                     </button>
                     <button type="submit" class="btn btn-primary btn-sm">

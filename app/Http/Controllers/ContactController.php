@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Storage;
 
 class ContactController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $data = [
-            'contacts' => Contact::orderBy('created_at', 'desc')->paginate(10)
+            'contacts' => Contact::filter($request->all())->orderBy('created_at', 'desc')->paginate(10)
         ];
         return Inertia::render('Contacts/List', $data);
     }
