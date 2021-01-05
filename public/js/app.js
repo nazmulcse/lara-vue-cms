@@ -77954,28 +77954,28 @@ var map = {
 	],
 	"./Contacts/Create": [
 		"./resources/js/Pages/Contacts/Create.vue",
-		23,
+		4,
 		3,
 		5,
 		13
 	],
 	"./Contacts/Create.vue": [
 		"./resources/js/Pages/Contacts/Create.vue",
-		23,
+		4,
 		3,
 		5,
 		13
 	],
 	"./Contacts/Edit": [
 		"./resources/js/Pages/Contacts/Edit.vue",
-		23,
+		4,
 		3,
 		5,
 		14
 	],
 	"./Contacts/Edit.vue": [
 		"./resources/js/Pages/Contacts/Edit.vue",
-		23,
+		4,
 		3,
 		5,
 		14
@@ -77992,13 +77992,13 @@ var map = {
 	],
 	"./Contacts/List": [
 		"./resources/js/Pages/Contacts/List.vue",
-		23,
+		4,
 		3,
 		15
 	],
 	"./Contacts/List.vue": [
 		"./resources/js/Pages/Contacts/List.vue",
-		23,
+		4,
 		3,
 		15
 	],
@@ -78187,6 +78187,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(laravel_jetstream__WEBPACK_IMPORT
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(portal_vue__WEBPACK_IMPORTED_MODULE_4___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_meta__WEBPACK_IMPORTED_MODULE_1__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(bootstrap_vue_dist_bootstrap_vue_esm__WEBPACK_IMPORTED_MODULE_5__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.mixin(__webpack_require__(/*! ./trans */ "./resources/js/trans.js"));
 _inertiajs_progress__WEBPACK_IMPORTED_MODULE_6__["InertiaProgress"].init();
 var app = document.getElementById('app');
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
@@ -78215,6 +78216,47 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     });
   }
 }).$mount(app);
+
+/***/ }),
+
+/***/ "./resources/js/trans.js":
+/*!*******************************!*\
+  !*** ./resources/js/trans.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+  methods: {
+    /**
+     * Translate the given key.
+     */
+    __: function __(key) {
+      var replace = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      //console.log(this.$page.props.language['First Name']);
+      var translation = this.$page.props.language[key] ? this.$page.props.language[key] : key;
+      Object.keys(replace).forEach(function (key) {
+        translation = translation.replace(':' + key, replace[key]);
+      });
+      return translation;
+    },
+
+    /** 
+    * Translate the given key with basic pluralization. 
+    */
+    __n: function __n(key, number) {
+      var replace = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      var options = key.split('|');
+      key = options[1];
+
+      if (number == 1) {
+        key = options[0];
+      }
+
+      return tt(key, replace);
+    }
+  }
+};
 
 /***/ }),
 

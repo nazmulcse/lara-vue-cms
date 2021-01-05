@@ -11,10 +11,10 @@
         <thead class="bg-secondary text-white">
             <tr>
             <th scope="col">#</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Photo</th>
+            <th scope="col">{{ __('First Name') }} </th>
+            <th scope="col"> {{ __('Last Name') }} </th>
+            <th scope="col"> {{ __('Email') }} </th>
+            <th scope="col"> {{ __('Photo') }} </th>
             <th scope="col">Action</th>
             </tr>
         </thead>

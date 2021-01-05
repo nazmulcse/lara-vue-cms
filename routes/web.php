@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\LanguageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,14 +15,17 @@ use App\Http\Controllers\ContactController;
 |
 */
 
+// Uses for setting up the language.
+Route::get('{locale}/' . config('app.admin_route_prefix'), [LanguageController::class, 'setLocale'])->name('language');
+
 /* Route::get('/', function () {
     return view('welcome');
 }); */
-Route::get('/', [DashboardController::class, 'index'])
-    ->name('dashboard');
+
     // ->middleware('auth');
 
-Route::prefix('admin')->group(function () {
+Route::prefix(Request::segment(1) . config('app.admin_route_prefix'))->group(function () {
+  Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
   Route::get('/contacts', [ContactController::class, 'index'])->name('contact.list');
   Route::get('/contacts/create', [ContactController::class, 'create'])->name('contact.create');
   Route::post('/contacts', [ContactController::class, 'store'])->name('contact.store');

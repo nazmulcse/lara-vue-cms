@@ -233,13 +233,21 @@ var render = function() {
             _c("tr", [
               _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
               _vm._v(" "),
-              _c("th", { attrs: { scope: "col" } }, [_vm._v("First Name")]),
+              _c("th", { attrs: { scope: "col" } }, [
+                _vm._v(_vm._s(_vm.__("First Name")) + " ")
+              ]),
               _vm._v(" "),
-              _c("th", { attrs: { scope: "col" } }, [_vm._v("Last Name")]),
+              _c("th", { attrs: { scope: "col" } }, [
+                _vm._v(" " + _vm._s(_vm.__("Last Name")) + " ")
+              ]),
               _vm._v(" "),
-              _c("th", { attrs: { scope: "col" } }, [_vm._v("Email")]),
+              _c("th", { attrs: { scope: "col" } }, [
+                _vm._v(" " + _vm._s(_vm.__("Email")) + " ")
+              ]),
               _vm._v(" "),
-              _c("th", { attrs: { scope: "col" } }, [_vm._v("Photo")]),
+              _c("th", { attrs: { scope: "col" } }, [
+                _vm._v(" " + _vm._s(_vm.__("Photo")) + " ")
+              ]),
               _vm._v(" "),
               _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")])
             ])

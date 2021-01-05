@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Dhaka',
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'bn',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'bn',
 
     /*
     |--------------------------------------------------------------------------
@@ -229,6 +229,42 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+    ],
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Admin Route Prefix
+    |--------------------------------------------------------------------------
+    |
+    | The route prefix that would be used to separate the front end
+    | from the admin panel with this route group prefix.
+    |
+    */
+
+    'admin_route_prefix' => '/admin',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Active Languages
+    |--------------------------------------------------------------------------
+    |
+    | Languages that are active in the current application.
+    |
+    */
+    'active_languages' => [ 'en', 'bn' ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Active Languages (labels)
+    |--------------------------------------------------------------------------
+    |
+    | Languages that are active in the current application with labels.
+    |
+    */
+    'active_locales' => [
+        'en' => 'English',
+        'bn' => 'Bengali'
     ],
 
 ];

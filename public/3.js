@@ -662,7 +662,41 @@ var render = function() {
             "ul",
             { staticClass: "navbar-nav ml-auto" },
             [
-              _vm._m(2),
+              _c(
+                "li",
+                { staticClass: "nav-item mr-md-2 mb-2 mb-md-0 text-right" },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "btn-group mt-1 language-btn-group",
+                      attrs: { role: "group" }
+                    },
+                    [
+                      _c(
+                        "inertia-link",
+                        {
+                          staticClass: "btn btn-outline-light btn-sm",
+                          class: { active: _vm.$page.props.locale == "bn" },
+                          attrs: { href: _vm.route("language", "bn") }
+                        },
+                        [_vm._v("\n                  বাংলা\n               ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "inertia-link",
+                        {
+                          staticClass: "btn btn-outline-light btn-sm",
+                          class: { active: _vm.$page.props.locale == "en" },
+                          attrs: { href: _vm.route("language", "en") }
+                        },
+                        [_vm._v("\n                  English\n               ")]
+                      )
+                    ],
+                    1
+                  )
+                ]
+              ),
               _vm._v(" "),
               _c(
                 "b-nav-item-dropdown",
@@ -778,43 +812,6 @@ var staticRenderFns = [
         ]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "li",
-      { staticClass: "nav-item mr-md-2 mb-2 mb-md-0 text-right" },
-      [
-        _c(
-          "div",
-          {
-            staticClass: "btn-group mt-1 language-btn-group",
-            attrs: { role: "group" }
-          },
-          [
-            _c(
-              "a",
-              {
-                staticClass: "active btn btn-outline-light btn-sm",
-                attrs: { href: "https://mislgsp.gov.bd/bn//admin" }
-              },
-              [_vm._v("\n               বাংলা\n               ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: " btn btn-outline-light btn-sm",
-                attrs: { href: "https://mislgsp.gov.bd/en//admin" }
-              },
-              [_vm._v("\n               English\n               ")]
-            )
-          ]
-        )
-      ]
-    )
   }
 ]
 render._withStripped = true

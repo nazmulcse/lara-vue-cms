@@ -18,12 +18,12 @@
       <ul class="navbar-nav ml-auto">
          <li class="nav-item mr-md-2 mb-2 mb-md-0 text-right">
             <div class="btn-group mt-1 language-btn-group" role="group">
-               <a href="https://mislgsp.gov.bd/bn//admin" class="active btn btn-outline-light btn-sm">
-               বাংলা
-               </a>
-               <a href="https://mislgsp.gov.bd/en//admin" class=" btn btn-outline-light btn-sm">
-               English
-               </a>
+               <inertia-link :href="route('language', 'bn')" :class="{'active' : $page.props.locale == 'bn' }" class="btn btn-outline-light btn-sm">
+                  বাংলা
+               </inertia-link>
+               <inertia-link :href="route('language', 'en')" :class="{'active' : $page.props.locale == 'en' }" class="btn btn-outline-light btn-sm">
+                  English
+               </inertia-link>
             </div>
          </li>
         <b-nav-item-dropdown right>

@@ -36,6 +36,7 @@ Vue.use(InertiaForm);
 Vue.use(PortalVue);
 Vue.use(VueMeta)
 Vue.use(BootstrapVue)
+Vue.mixin(require('./trans'))
 
 InertiaProgress.init()
 
