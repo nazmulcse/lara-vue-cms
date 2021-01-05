@@ -5,7 +5,19 @@
     menu_active="contact"
     :buttons="buttons"
     :breadcrumbs="breadcrumbs">
-    <h1 class="mb-8 font-bold text-3xl">Contacts</h1>
+    <admin-filter-form @reset="reset">
+      <div class="row">
+          <div class="col-sm-4">
+              <text-input v-model="form.first_name" label="First Name" id="first_name" />
+          </div>
+          <div class="col-sm-4">
+              <text-input v-model="form.last_name" label="Last Name" id="last_name" />
+          </div>
+          <div class="col-sm-4">
+              <text-input type="email" v-model="form.email" label="Email" id="email" />
+          </div>
+      </div>
+    </admin-filter-form>
     <div class="contact">
       <table class="table table-hover table-striped mb-0">
         <thead class="bg-secondary text-white">
@@ -56,6 +68,8 @@ import Pagination from '@/Shared/Pagination'
 import pickBy from 'lodash/pickBy'
 import SearchFilter from '@/Shared/SearchFilter'
 import throttle from 'lodash/throttle'
+import AdminFilterForm from '@/Layouts/AdminFilterForm'
+import TextInput from '@/Shared/TextInput'
 
 export default {
   metaInfo: { title: 'Contacts' },
@@ -67,23 +81,42 @@ export default {
       ],
       buttons: [
         {url: "contact.create", title:"Add Contacts", class: "btn-sm btn-primary", icon:"icon-plus3"}
-      ]
+      ],
+      form: {
+        first_name: null,
+        last_name: null,
+        email: null,
+      }
     }
   },
   components: {
     Icon,
     Pagination,
     SearchFilter,
-    Admin
+    Admin,
+    AdminFilterForm,
+    TextInput
   },
   props: {
     contacts: Object
+  },
+  watch: {
+    form: {
+      handler: throttle(function() {
+        let query = pickBy(this.form)
+        this.$inertia.replace(this.route('contact.list', Object.keys(query).length ? query : { remember: 'forget' }))
+      }, 150),
+      deep: true,
+    },
   },
   methods: {
     destroy(contactId) {
       if (confirm('Are you sure you want to delete this contact?')) {
         this.$inertia.delete(this.route('contact.destroy', contactId))
       }
+    },
+    reset() {
+      this.form = mapValues(this.form, () => null)
     },
   },
 }
