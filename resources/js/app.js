@@ -36,6 +36,9 @@ Vue.use(InertiaForm);
 Vue.use(PortalVue);
 Vue.use(VueMeta)
 Vue.use(BootstrapVue)
+
+// Integrate laravel language file in vue
+// https://devonmather.xyz/localizing-a-laravel-app-using-vue-js-and-inertia-js-without-any-dependencies/
 Vue.mixin(require('./trans'))
 
 InertiaProgress.init()

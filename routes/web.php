@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\ContactReportController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,7 @@ Route::prefix(Request::segment(1) . config('app.admin_route_prefix'))->group(fun
   Route::get('/contacts/edit/{id}', [ContactController::class, 'edit'])->name('contact.edit');
   Route::put('/contacts/{id}', [ContactController::class, 'update'])->name('contact.update');
   Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+  Route::get('/contacts/report', [ContactReportController::class, 'index'])->name('contact.report.create');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

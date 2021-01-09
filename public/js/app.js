@@ -77924,187 +77924,207 @@ var map = {
 		"./resources/js/Pages/API/ApiTokenManager.vue",
 		0,
 		1,
-		2,
-		7
+		3,
+		8
 	],
 	"./API/ApiTokenManager.vue": [
 		"./resources/js/Pages/API/ApiTokenManager.vue",
 		0,
 		1,
-		2,
-		7
+		3,
+		8
 	],
 	"./API/Index": [
 		"./resources/js/Pages/API/Index.vue",
 		0,
 		1,
-		2,
+		3,
 		6,
-		7,
-		21
+		8,
+		22
 	],
 	"./API/Index.vue": [
 		"./resources/js/Pages/API/Index.vue",
 		0,
 		1,
-		2,
+		3,
 		6,
-		7,
-		21
+		8,
+		22
 	],
 	"./Contacts/Create": [
 		"./resources/js/Pages/Contacts/Create.vue",
 		4,
-		3,
+		2,
 		5,
-		14
+		7,
+		23
 	],
 	"./Contacts/Create.vue": [
 		"./resources/js/Pages/Contacts/Create.vue",
 		4,
-		3,
+		2,
 		5,
-		14
+		7,
+		23
 	],
 	"./Contacts/Edit": [
 		"./resources/js/Pages/Contacts/Edit.vue",
 		4,
-		3,
+		2,
 		5,
-		15
+		7,
+		24
 	],
 	"./Contacts/Edit.vue": [
 		"./resources/js/Pages/Contacts/Edit.vue",
 		4,
-		3,
+		2,
 		5,
-		15
+		7,
+		24
 	],
 	"./Contacts/Form": [
 		"./resources/js/Pages/Contacts/Form.vue",
-		5,
-		22
+		7,
+		20
 	],
 	"./Contacts/Form.vue": [
 		"./resources/js/Pages/Contacts/Form.vue",
-		5,
-		22
+		7,
+		20
 	],
 	"./Contacts/List": [
 		"./resources/js/Pages/Contacts/List.vue",
 		4,
-		3,
-		11
+		2,
+		5,
+		17
 	],
 	"./Contacts/List.vue": [
 		"./resources/js/Pages/Contacts/List.vue",
 		4,
-		3,
-		11
+		2,
+		5,
+		17
 	],
 	"./Dashboard": [
 		"./resources/js/Pages/Dashboard.vue",
 		6,
-		16
+		14
 	],
 	"./Dashboard.vue": [
 		"./resources/js/Pages/Dashboard.vue",
 		6,
-		16
+		14
 	],
 	"./Dashboard/Index": [
 		"./resources/js/Pages/Dashboard/Index.vue",
-		3,
+		2,
 		19
 	],
 	"./Dashboard/Index.vue": [
 		"./resources/js/Pages/Dashboard/Index.vue",
-		3,
+		2,
 		19
 	],
 	"./Profile/DeleteUserForm": [
 		"./resources/js/Pages/Profile/DeleteUserForm.vue",
 		0,
 		1,
-		18
+		16
 	],
 	"./Profile/DeleteUserForm.vue": [
 		"./resources/js/Pages/Profile/DeleteUserForm.vue",
 		0,
 		1,
-		18
+		16
 	],
 	"./Profile/LogoutOtherBrowserSessionsForm": [
 		"./resources/js/Pages/Profile/LogoutOtherBrowserSessionsForm.vue",
 		0,
 		1,
-		9,
-		17
+		10,
+		15
 	],
 	"./Profile/LogoutOtherBrowserSessionsForm.vue": [
 		"./resources/js/Pages/Profile/LogoutOtherBrowserSessionsForm.vue",
 		0,
 		1,
-		9,
-		17
+		10,
+		15
 	],
 	"./Profile/Show": [
 		"./resources/js/Pages/Profile/Show.vue",
 		0,
 		1,
-		2,
+		3,
 		6,
-		8,
 		9,
 		10,
+		11,
 		13
 	],
 	"./Profile/Show.vue": [
 		"./resources/js/Pages/Profile/Show.vue",
 		0,
 		1,
-		2,
+		3,
 		6,
-		8,
 		9,
 		10,
+		11,
 		13
 	],
 	"./Profile/TwoFactorAuthenticationForm": [
 		"./resources/js/Pages/Profile/TwoFactorAuthenticationForm.vue",
 		0,
 		1,
-		8,
-		20
+		9,
+		21
 	],
 	"./Profile/TwoFactorAuthenticationForm.vue": [
 		"./resources/js/Pages/Profile/TwoFactorAuthenticationForm.vue",
 		0,
 		1,
-		8,
-		20
+		9,
+		21
 	],
 	"./Profile/UpdatePasswordForm": [
 		"./resources/js/Pages/Profile/UpdatePasswordForm.vue",
-		2,
+		3,
 		12
 	],
 	"./Profile/UpdatePasswordForm.vue": [
 		"./resources/js/Pages/Profile/UpdatePasswordForm.vue",
-		2,
+		3,
 		12
 	],
 	"./Profile/UpdateProfileInformationForm": [
 		"./resources/js/Pages/Profile/UpdateProfileInformationForm.vue",
 		0,
-		2,
-		10
+		3,
+		11
 	],
 	"./Profile/UpdateProfileInformationForm.vue": [
 		"./resources/js/Pages/Profile/UpdateProfileInformationForm.vue",
 		0,
+		3,
+		11
+	],
+	"./Reports/Contacts/Create": [
+		"./resources/js/Pages/Reports/Contacts/Create.vue",
+		4,
 		2,
-		10
+		5,
+		18
+	],
+	"./Reports/Contacts/Create.vue": [
+		"./resources/js/Pages/Reports/Contacts/Create.vue",
+		4,
+		2,
+		5,
+		18
 	]
 };
 function webpackAsyncContext(req) {
@@ -78186,7 +78206,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_inertiajs_inertia_vue__WEBPACK_I
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(laravel_jetstream__WEBPACK_IMPORTED_MODULE_3__["InertiaForm"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(portal_vue__WEBPACK_IMPORTED_MODULE_4___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_meta__WEBPACK_IMPORTED_MODULE_1__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(bootstrap_vue_dist_bootstrap_vue_esm__WEBPACK_IMPORTED_MODULE_5__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(bootstrap_vue_dist_bootstrap_vue_esm__WEBPACK_IMPORTED_MODULE_5__["default"]); // Integrate laravel language file in vue
+// https://devonmather.xyz/localizing-a-laravel-app-using-vue-js-and-inertia-js-without-any-dependencies/
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.mixin(__webpack_require__(/*! ./trans */ "./resources/js/trans.js"));
 _inertiajs_progress__WEBPACK_IMPORTED_MODULE_6__["InertiaProgress"].init();
 var app = document.getElementById('app');

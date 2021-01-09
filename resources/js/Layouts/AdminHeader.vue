@@ -1,5 +1,5 @@
 <template>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-retail">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-retail py-1">
    <a class="navbar-brand" href="#">
    <img src="#" alt="Logo" class="mr-1" width="30" height="30">
    <span class="mt-1 d-inline-block"><span class="d-none d-sm-block">Lara Vue CMS</span> <span class="d-block d-sm-none" aria-hidden="true">এলজিএসপি-৩</span></span>

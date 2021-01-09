@@ -15,25 +15,25 @@
                 </li>
             </ul>
         </li>
-        <li class="nav-item has-submenu b-nav-dropdown dropdown">
-            <a class="nav-link dropdown-toggle" href="javascript:">
-                <i class="icon-puzzle3" aria-hidden="true"></i>
-                <span>Scheme</span>
-            </a>
-            <ul class="submenu" data-submenu-title="মিটিং ট্র্যাকার">
-                <li>
-                    <a class="dropdown-item " href="#">
-                        BGCC Meeting
-                    </a>
-                </li>
-            </ul>
-        </li>
         <li class="nav-item">
           <inertia-link showProgress="true" class="nav-link" :class="{ 'active': menu_active === 'contact' }" :href="route('contact.list')">
-            <i class="icon-stack-text" aria-hidden="true"></i>
+            <i class="icon-users" aria-hidden="true"></i>
                 <span>Contacts</span>
           </inertia-link>
-            
+        </li>
+
+        <li class="nav-item has-submenu b-nav-dropdown dropdown">
+            <a class="nav-link dropdown-toggle" href="javascript:">
+                <i class="icon-file-text" aria-hidden="true"></i>
+                <span>Reports</span>
+            </a>
+            <ul class="submenu" data-submenu-title="Contacts">
+                <li>
+                    <inertia-link showProgress="true" class="dropdown-item" :class="{ 'active': menu_active === 'contact_report' }" :href="route('contact.report.create')">
+                          <span>Contacts</span>
+                    </inertia-link>
+                </li>
+            </ul>
         </li>
       </ul>
     </nav>
@@ -54,11 +54,11 @@ export default {
     for (i = 0; i < dropdown.length; i++) {
       dropdown[i].addEventListener("click", function() {
       this.classList.toggle("active");
-      if (dropdownContent.style.display === "block") {
-      dropdownContent.style.display = "none";
+      /* if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
       } else {
-      dropdownContent.style.display = "block";
-      }
+        dropdownContent.style.display = "block";
+      } */
       });
     }
   },
